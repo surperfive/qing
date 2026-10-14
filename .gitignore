@@ -1,0 +1,13 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# 验证脚本的产出（scripts/probe-*.mjs → probe-out/，scripts/shot-*.mjs → outputs/）
+# 都是可重跑脚本再生成的截图/录屏，不进版本控制 —— 否则 .git 会被上百 MB 图片撑爆。
+probe-out/
+outputs/

@@ -1,0 +1,3 @@
+﻿OK	metadata.json
+OK	.env.example
+FAIL	.vite
