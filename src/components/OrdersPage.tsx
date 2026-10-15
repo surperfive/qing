@@ -356,7 +356,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
                   {order.status !== 'completed' && (
                     <button
                       onClick={() => onShowToast('⚡ 已为您向门店加急催单，后厨正在优先制作！')}
-                      className="h-9 px-3.5 sm:px-4 rounded-full bg-[#fef075] flex items-center justify-center gap-1.5 shadow-2xs hover:bg-[#faea5a] active:scale-95 transition-all duration-200 ease-out cursor-pointer"
+                      className="h-9 px-4 rounded-full bg-[#fef075] flex items-center justify-center gap-1.5 shadow-2xs hover:bg-[#faea5a] active:scale-95 transition-all duration-200 ease-out cursor-pointer"
                     >
                       <Bell className="w-3.5 h-3.5 text-black fill-black flex-shrink-0" />
                       <span className="text-xs font-black text-black whitespace-nowrap">

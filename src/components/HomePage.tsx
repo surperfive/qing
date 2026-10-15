@@ -266,29 +266,29 @@ export const HomePage: React.FC<HomePageProps> = ({
                 onNavigate("menu");
               }
             }}
-            className="cursor-pointer bg-[#111111] rounded-[22px] p-3 sm:p-3.5 text-white relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
+            className="cursor-pointer bg-[#111111] rounded-[22px] p-3.5 text-white relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
             id="home-signature-card"
           >
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="px-2 py-0.5 rounded-full bg-[#C7F665] text-black text-[10px] sm:text-[11px] font-black tracking-tight">
+                <span className="px-2 py-0.5 rounded-full bg-[#C7F665] text-black text-[11px] font-black tracking-tight">
                   镇店招牌
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-white/15 text-white text-[10px] sm:text-[11px] font-bold backdrop-blur-xs">
+                <span className="px-2 py-0.5 rounded-full bg-white/15 text-white text-[11px] font-bold backdrop-blur-xs">
                   精选热卖
                 </span>
               </div>
-              <h4 className="font-black text-white text-[15px] sm:text-base tracking-tight mt-2 leading-snug group-hover:text-[#C7F665] transition-colors">
+              <h4 className="font-black text-white text-base tracking-tight mt-2 leading-snug group-hover:text-[#C7F665] transition-colors">
                 招牌能量减脂餐
               </h4>
-              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 font-medium leading-tight">
+              <p className="text-[11px] text-slate-400 mt-0.5 font-medium leading-tight">
                 高蛋白慢碳 · 营养师科学控卡
               </p>
             </div>
 
             {/* Bottom Graphic: Bowl on left, yellow handwritten doodle on right */}
             <div className="flex items-end justify-between mt-2 pt-1">
-              <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-white/20 shadow-md flex-shrink-0 bg-slate-800">
+              <div className="w-22 h-22 rounded-full overflow-hidden border-2 border-white/20 shadow-md flex-shrink-0 bg-slate-800">
                 <img
                   src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
                   alt="招牌能量减脂餐"
@@ -302,16 +302,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <svg className="w-5 h-4 text-[#FACC15] fill-current mb-0.5" viewBox="0 0 24 24">
                   <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z" />
                 </svg>
-                <span className="font-black text-[#FACC15] text-[11px] sm:text-xs leading-none tracking-tight transform rotate-2">
+                <span className="font-black text-[#FACC15] text-xs leading-none tracking-tight transform rotate-2">
                   EAT
                 </span>
-                <span className="font-black text-[#FACC15] text-[11px] sm:text-xs leading-none tracking-tight transform -rotate-1 mt-0.5">
+                <span className="font-black text-[#FACC15] text-xs leading-none tracking-tight transform -rotate-1 mt-0.5">
                   CLEAN
                 </span>
-                <span className="font-black text-[#FACC15] text-[11px] sm:text-xs leading-none tracking-tight transform rotate-1 mt-0.5">
+                <span className="font-black text-[#FACC15] text-xs leading-none tracking-tight transform rotate-1 mt-0.5">
                   STAY
                 </span>
-                <span className="font-black text-[#FACC15] text-[11px] sm:text-xs leading-none tracking-tight transform -rotate-2 mt-0.5">
+                <span className="font-black text-[#FACC15] text-xs leading-none tracking-tight transform -rotate-2 mt-0.5">
                   COOL!
                 </span>
               </div>
@@ -321,7 +321,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Right Warm Yellow Card: 邀请新人享免单 */}
           <div
             onClick={() => setModalType("invite")}
-            className="cursor-pointer bg-gradient-to-b from-[#FFFDF0] via-[#FFFBE8] to-[#FFF3C4] rounded-[22px] p-3 sm:p-3.5 border border-[#FDE68A]/70 relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
+            className="cursor-pointer bg-gradient-to-b from-[#FFFDF0] via-[#FFFBE8] to-[#FFF3C4] rounded-[22px] p-3.5 border border-[#FDE68A]/70 relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
             id="home-invite-card"
           >
             {/* Top right handwritten doodle */}
@@ -335,17 +335,17 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <div className="relative z-10">
               <div className="flex items-center gap-1">
-                <span className="px-2 py-0.5 rounded-full bg-[#FF9800] text-white text-[10px] sm:text-[11px] font-black tracking-tight shadow-2xs">
+                <span className="px-2 py-0.5 rounded-full bg-[#FF9800] text-white text-[11px] font-black tracking-tight shadow-2xs">
                   新人免单
                 </span>
-                <span className="text-[11px] sm:text-xs font-black text-[#FF9800] ml-0.5">
+                <span className="text-xs font-black text-[#FF9800] ml-0.5">
                   0元享
                 </span>
               </div>
-              <h4 className="font-black text-slate-900 text-[15px] sm:text-base tracking-tight mt-2 leading-snug">
+              <h4 className="font-black text-slate-900 text-base tracking-tight mt-2 leading-snug">
                 邀请新人享免单
               </h4>
-              <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 font-medium leading-tight">
+              <p className="text-[11px] text-slate-500 mt-0.5 font-medium leading-tight">
                 好友首单立享 0 元起
               </p>
 
@@ -362,7 +362,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Bottom-right mascot character with blue companion */}
-            <div className="absolute -bottom-1 -right-1 w-28 h-26 sm:w-32 sm:h-28 pointer-events-none select-none overflow-hidden z-0">
+            <div className="absolute -bottom-1 -right-1 w-32 h-28 pointer-events-none select-none overflow-hidden z-0">
               <img
                 src="/mascot_invite.png"
                 alt="邀请新人享免单"
@@ -381,13 +381,13 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="w-4.5 h-4.5 rounded-full bg-slate-900 text-[#C7F665] flex items-center justify-center shadow-2xs border border-[#C7F665]/30 shrink-0">
               <Sparkles className="w-3 h-3 stroke-[2.2]" />
             </div>
-            <h3 className="font-extrabold text-slate-900 text-sm sm:text-[15px] tracking-tight whitespace-nowrap">
+            <h3 className="font-extrabold text-slate-900 text-[15px] tracking-tight whitespace-nowrap">
               人气当季轻食
             </h3>
           </div>
           <button
             onClick={() => onNavigate('menu')}
-            className="text-[11px] sm:text-xs text-slate-500 font-bold hover:text-slate-800 flex items-center gap-0.5 whitespace-nowrap transition-colors duration-200 ease-out cursor-pointer active:scale-95"
+            className="text-xs text-slate-500 font-bold hover:text-slate-800 flex items-center gap-0.5 whitespace-nowrap transition-colors duration-200 ease-out cursor-pointer active:scale-95"
           >
             <span>全部菜单</span>
             <ChevronRight className="w-3 h-3 stroke-[2]" />
@@ -399,10 +399,10 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div
               key={dish.id}
               onClick={() => onSelectDish(dish)}
-              className="group cursor-pointer bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-all duration-200 ease-out flex flex-col overflow-hidden text-left active:scale-[0.98]"
+              className="group cursor-pointer bg-white rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-all duration-200 ease-out flex flex-col overflow-hidden text-left active:scale-[0.98]"
             >
               {/* Dish Image */}
-              <div className="relative h-28 sm:h-30 w-full overflow-hidden bg-slate-100">
+              <div className="relative h-30 w-full overflow-hidden bg-slate-100">
                 <DishImage
                   src={dish.image}
                   alt={dish.name}
@@ -419,9 +419,9 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               {/* Dish Body */}
-              <div className="p-2 sm:p-2.5 flex-1 flex flex-col justify-between">
+              <div className="p-2.5 flex-1 flex flex-col justify-between">
                 <div className="min-w-0">
-                  <h4 className="font-extrabold text-slate-900 text-xs sm:text-[13px] leading-tight truncate whitespace-nowrap group-hover:text-[#54801A] transition-colors">
+                  <h4 className="font-extrabold text-slate-900 text-[13px] leading-tight truncate whitespace-nowrap group-hover:text-[#54801A] transition-colors">
                     {dish.name}
                   </h4>
                   <p className="text-[10px] text-slate-400 mt-0.5 font-medium truncate whitespace-nowrap leading-tight">
@@ -443,7 +443,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100">
                   <div className="flex items-baseline gap-0.5 whitespace-nowrap min-w-0">
                     <span className="text-[10px] font-bold text-[#E60012]">¥</span>
-                    <span className="text-sm sm:text-[15px] font-black text-[#E60012] leading-none">
+                    <span className="text-[15px] font-black text-[#E60012] leading-none">
                       {dish.dealPrice.toFixed(1)}
                     </span>
                     {dish.originalPrice && (
@@ -479,7 +479,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-sm bg-white rounded-3xl p-5 sm:p-6 shadow-2xl overflow-hidden border border-slate-100 text-center"
+              className="relative w-full max-w-sm bg-white rounded-3xl p-6 shadow-2xl overflow-hidden border border-slate-100 text-center"
             >
               {/* Close Button */}
               <button
@@ -601,7 +601,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-sm bg-white rounded-3xl p-5 sm:p-6 shadow-2xl overflow-hidden border border-slate-100 text-center"
+              className="relative w-full max-w-sm bg-white rounded-3xl p-6 shadow-2xl overflow-hidden border border-slate-100 text-center"
             >
               {/* Close Button */}
               <button

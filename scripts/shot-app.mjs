@@ -15,6 +15,8 @@ const ctx = await browser.newContext({
   deviceScaleFactor: 2
 });
 const page = await ctx.newPage();
+// 本机 playwright 必拦：否则 page.screenshot 会卡在 "waiting for fonts to load"
+await ctx.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
 
 const freezeRaf = async () => {
   await page.evaluate(() => {
@@ -34,7 +36,7 @@ const shot = async (name, prepare) => {
   if (prepare) await prepare();
   await page.waitForTimeout(700);
   await freezeRaf();
-  await page.screenshot({ path: `${OUT}/${name}.png` });
+  await page.screenshot({ path: `${OUT}/${name}.png`, timeout: 60000 });
   console.log('captured', name);
 };
 

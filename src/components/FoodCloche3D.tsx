@@ -56,7 +56,7 @@ export const FoodCloche3D: React.FC<FoodCloche3DProps> = ({
   onTap,
   drawRarity = 'SSR',
   drawMode = 'single',
-  className = 'w-full max-w-[340px] sm:max-w-[380px] mx-auto'
+  className = 'w-full max-w-[380px] mx-auto'
 }) => {
   const isLifted = isOpen || isDrawing;
 

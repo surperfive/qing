@@ -26,7 +26,7 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
       aria-label="底部导航"
       className={`${
         activeTab === 'gacha' ? 'relative' : 'absolute bottom-0'
-      } inset-x-0 z-40 bg-white/95 backdrop-blur-md rounded-t-[22px] pt-1.5 pb-2 px-2 sm:px-3 shadow-[0_-4px_24px_rgba(0,0,0,0.06)] ${
+      } inset-x-0 z-40 bg-white/95 backdrop-blur-md rounded-t-[22px] pt-1.5 pb-2 px-3 shadow-[0_-4px_24px_rgba(0,0,0,0.06)] ${
         activeTab === 'gacha' ? 'border-t border-[#C7F665]/50' : 'border-t border-slate-100'
       } select-none`}
       id="main-bottom-navigation-bar"
@@ -63,7 +63,7 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
 
               {/* Label */}
               <span
-                className={`text-[10.5px] sm:text-[11px] tracking-tight mt-0.5 leading-tight ${
+                className={`text-[11px] tracking-tight mt-0.5 leading-tight ${
                   isActive ? "text-black font-black" : "text-slate-500 font-medium group-hover:text-slate-800"
                 }`}
               >

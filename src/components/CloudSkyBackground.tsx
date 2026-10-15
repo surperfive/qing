@@ -15,7 +15,7 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
 }) => {
   return (
     <div
-      className={`absolute inset-x-0 top-0 h-[860px] sm:h-[890px] pointer-events-none overflow-hidden select-none bg-white z-0 ${className}`}
+      className={`absolute inset-x-0 top-0 h-[890px] pointer-events-none overflow-hidden select-none bg-white z-0 ${className}`}
       id="gacha-cloud-sky-backdrop"
       aria-hidden="true"
     >
@@ -27,7 +27,7 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
       />
 
       {/* Reference Image Bottom Wave Transition with Right Smiley Face - Positioned right at user's blue line below the status panel */}
-      <div className="absolute bottom-0 inset-x-0 h-16 sm:h-20 pointer-events-none overflow-hidden">
+      <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none overflow-hidden">
         {/* Layer 1: Soft Translucent Lime Background Wave behind main wave */}
         <svg
           viewBox="0 0 400 80"
@@ -54,13 +54,13 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
         </svg>
 
         {/* Layer 3: The Black Smiley Face on the right side wave slope */}
-        <div className="absolute right-4 sm:right-6 bottom-3.5 sm:bottom-4 pointer-events-none select-none z-10 rotate-[8deg]">
+        <div className="absolute right-6 bottom-4 pointer-events-none select-none z-10 rotate-[8deg]">
           <svg
             width="28"
             height="28"
             viewBox="0 0 32 32"
             fill="none"
-            className="w-6 h-6 sm:w-7 sm:h-7"
+            className="w-7 h-7"
           >
             {/* Left Eye: tilted oval pill */}
             <ellipse

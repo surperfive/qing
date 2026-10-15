@@ -322,7 +322,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
   // Render Ingredient Visual in progress slots
   const renderIngredientVisual = (id: string, name: string, iconClass?: string) => {
     // 默认尺寸给「食材图鉴」弹窗里 w-9 h-9 的方框用；正方形插画可以吃满。
-    const cls = iconClass || "w-7 h-7 sm:w-8 sm:h-8";
+    const cls = iconClass || "w-8 h-8";
     // 奖池 10 款现在都有插画（public/ingredients/*.png），映射统一收在
     // utils/ingredientArt —— 这里不再各写一份 switch，否则「飞进去的」
     // 和「格子里的」会漂移。
@@ -342,7 +342,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
     // ⚠️ 不能只查 pantry —— 刚抽到、尚未写入 pantry 的那一帧会掉到 🥗，
     // 导致食材图标闪一下再变回来。
     return (
-      <span className="text-base sm:text-lg select-none leading-none">
+      <span className="text-lg select-none leading-none">
         {pantry.find((i) => i.id === id)?.emoji ??
           GACHA_INGREDIENTS.find((g) => g.id === id)?.emoji ??
           '🥗'}
@@ -633,15 +633,15 @@ export const GachaPage: React.FC<GachaPageProps> = ({
   return (
     <div className="relative bg-[#C7F665] overflow-clip" id="gacha-page-root">
       {/* STICKY COMPACT HEADER */}
-      <header className="sticky top-0 z-40 bg-white/50 backdrop-blur-md border-b border-white/60 px-3 sm:px-4 py-2">
-        <div className="max-w-md sm:max-w-xl md:max-w-2xl mx-auto flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-white/50 backdrop-blur-md border-b border-white/60 px-4 py-2">
+        <div className="max-w-xl md:max-w-2xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-black text-[#C7F665] flex items-center justify-center shadow-xs">
               <Sparkles className="w-4 h-4 text-[#C7F665]" />
             </div>
             <div>
               <div className="flex items-center gap-1">
-                <h1 className="font-black text-slate-900 text-sm sm:text-base leading-tight tracking-tight">
+                <h1 className="font-black text-slate-900 text-base leading-tight tracking-tight">
                   抽卡集食材
                 </h1>
                 <span className="px-1.5 py-0.2 rounded-full bg-[#C7F665] text-black text-[9px] font-black border border-black/10">
@@ -679,9 +679,9 @@ export const GachaPage: React.FC<GachaPageProps> = ({
       </header>
 
       {/* MAIN CONTAINER */}
-      <div className="max-w-md sm:max-w-xl md:max-w-2xl mx-auto px-3 sm:px-4 pt-1 space-y-2 sm:space-y-3 relative z-10">
+      <div className="max-w-xl md:max-w-2xl mx-auto px-4 pt-1 space-y-3 relative z-10">
         {/* Unified Top & Pantry Interactive Zone with Background extending exactly to the bottom line */}
-        <div className="relative -mx-3 sm:-mx-4 px-3 sm:px-4 pt-0 pb-12 overflow-hidden">
+        <div className="relative -mx-3 -mx-4 px-4 pt-0 pb-12 overflow-hidden">
           {/* Lime backdrop that covers all the way down to below the status panel */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             {/* Top sky & graphic background */}
@@ -697,7 +697,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#C7F665]/50 to-[#C7F665]" />
 
             {/* Bottom Wave Transition & Right Smiley Face - Positioned right at the user's blue line */}
-            <div className="absolute bottom-0 inset-x-0 h-16 sm:h-20 pointer-events-none overflow-hidden">
+            <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none overflow-hidden">
               {/* Layer 1: Soft Translucent Lime Background Wave */}
               <svg
                 viewBox="0 0 400 80"
@@ -724,13 +724,13 @@ export const GachaPage: React.FC<GachaPageProps> = ({
               </svg>
 
               {/* Layer 3: Black Smiley Face on the right side slope */}
-              <div className="absolute right-4 sm:right-6 bottom-3.5 sm:bottom-4 pointer-events-none select-none z-10 rotate-[8deg]">
+              <div className="absolute right-6 bottom-4 pointer-events-none select-none z-10 rotate-[8deg]">
                 <svg
                   width="28"
                   height="28"
                   viewBox="0 0 32 32"
                   fill="none"
-                  className="w-6 h-6 sm:w-7 sm:h-7"
+                  className="w-7 h-7"
                 >
                   <ellipse
                     cx="9"
@@ -788,13 +788,13 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   duration: 5.2,
                   ease: 'easeInOut'
                 }}
-                className="w-full h-auto max-h-[520px] sm:max-h-[600px] object-contain select-none drop-shadow-lg scale-[1.15] sm:scale-[1.10] transform-gpu mt-3 sm:mt-5 transition-all will-change-transform"
+                className="w-full h-auto max-h-[600px] object-contain select-none drop-shadow-lg scale-[1.10] transform-gpu mt-5 transition-all will-change-transform"
                 draggable={false}
               />
 
               {/* 3D 矢量餐盖：主舞台核心交互组件（点击或抽卡均会优雅掀开餐盖） */}
               <div
-                className="absolute right-[1%] sm:right-[3%] bottom-[-5%] sm:bottom-[-6%] w-[76%] sm:w-[70%] max-w-[480px] sm:max-w-[520px] z-20"
+                className="absolute right-[3%] bottom-[-6%] w-[70%] max-w-[520px] z-20"
               >
                 <FoodCloche3D
                   isDrawing={isDrawing}
@@ -809,7 +809,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   }}
                   drawRarity={drawRarity}
                   drawMode={lastDrawMode}
-                  className="w-full h-auto scale-[1.26] sm:scale-[1.30] origin-center cursor-pointer pointer-events-auto"
+                  className="w-full h-auto scale-[1.30] origin-center cursor-pointer pointer-events-auto"
                 />
               </div>
             </div>
@@ -1561,7 +1561,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     <button
                       key={cat.key}
                       onClick={() => setActiveCategoryFilter(cat.key)}
-                      className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all duration-200 ease-out cursor-pointer whitespace-nowrap leading-none active:scale-95 ${
+                      className={`relative px-4 py-1.5 rounded-full text-sm font-black transition-all duration-200 ease-out cursor-pointer whitespace-nowrap leading-none active:scale-95 ${
                         isActive
                           ? 'bg-black text-white shadow-xs border-[2px] border-[#C7F665]'
                           : 'text-[#475467] hover:text-black bg-transparent'
@@ -1587,15 +1587,15 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                       handleSelectAllPantry();
                     }
                   }}
-                  className="relative flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 transition-all duration-200 ease-out text-black font-black text-xs sm:text-sm cursor-pointer border-[2px] border-black shadow-[1px_1px_0_#000]"
+                  className="relative flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 transition-all duration-200 ease-out text-black font-black text-sm cursor-pointer border-[2px] border-black shadow-[1px_1px_0_#000]"
                   title={selectedIngredients.length === pantry.length ? "取消全选" : "全选全部食材"}
                   id="btn-category-select-all-pill"
                 >
                   <span>{selectedIngredients.length === pantry.length ? '取消全选' : '全选'}</span>
                   {/* Black Circular Checkmark Badge with Gloss Highlight */}
-                  <span className="relative w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-black flex items-center justify-center shrink-0">
+                  <span className="relative w-4.5 h-4.5 rounded-full bg-black flex items-center justify-center shrink-0">
                     <svg
-                      className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#C7F665]"
+                      className="w-3 h-3 text-[#C7F665]"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -1807,27 +1807,27 @@ export const GachaPage: React.FC<GachaPageProps> = ({
             </div>
 
             {/* Delivery & Custom Bowl Status Panel: Clean Text/Controls Layout without outer shell */}
-            <div className="w-full px-1 py-1 sm:py-1.5 select-none flex flex-col justify-center">
+            <div className="w-full px-1 py-1.5 select-none flex flex-col justify-center">
               {/* Top Area (between top border and divider line): Left has Title + Subtitle, Right has vertically centered Delivery button */}
-              <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+              <div className="flex items-center justify-between gap-2">
                 {/* Left Column: Title + Status Pill in row 1, Subtitle in row 2 */}
                 <div className="flex flex-col min-w-0 justify-center">
                   <div className="flex items-center gap-1.5 min-w-0 flex-nowrap">
-                    <h3 className="font-black text-black text-[13px] sm:text-[15px] tracking-tight leading-none whitespace-nowrap shrink-0">
+                    <h3 className="font-black text-black text-[15px] tracking-tight leading-none whitespace-nowrap shrink-0">
                       {selectedCount === 0 ? '未勾选食材' : `已勾选 ${selectedCount} 款食材`}
                     </h3>
                     {/* Status Pill */}
                     <div
-                      className="px-2 sm:px-2.5 py-0.5 rounded-full flex items-center justify-center bg-[#C7F665] text-black shrink-0 whitespace-nowrap"
+                      className="px-2.5 py-0.5 rounded-full flex items-center justify-center bg-[#C7F665] text-black shrink-0 whitespace-nowrap"
                     >
-                      <span className="font-black text-[11px] sm:text-[12px] tracking-tight leading-none whitespace-nowrap">
+                      <span className="font-black text-[12px] tracking-tight leading-none whitespace-nowrap">
                         {isDeliveryThresholdMet ? '已满起送' : `差${10 - selectedCount}款`}
                       </span>
                     </div>
                   </div>
 
                   {/* Subtitle explanation text */}
-                  <p className="text-[#64748b] font-medium text-[10px] sm:text-[11px] tracking-tight mt-1 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <p className="text-[#64748b] font-medium text-[11px] tracking-tight mt-1 whitespace-nowrap overflow-hidden text-ellipsis">
                     点击食材，自由搭配定制
                   </p>
                 </div>
@@ -1837,7 +1837,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   <button
                     onClick={handleAddCustomMealToCart}
                     disabled={!isDeliveryThresholdMet}
-                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-2 font-black text-[13px] sm:text-[14px] tracking-tight transition-all select-none ${
+                    className={`px-5 py-2.5 rounded-full flex items-center gap-2 font-black text-[14px] tracking-tight transition-all select-none ${
                       isDeliveryThresholdMet
                         ? 'bg-[#C7F665] hover:bg-[#B7EF4B] text-black cursor-pointer shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out'
                         : 'bg-[#94a3b8] text-white cursor-not-allowed opacity-95 shadow-xs'
@@ -1845,7 +1845,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     id="btn-pantry-delivery-threshold"
                   >
                     <svg
-                      className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0"
+                      className="w-4.5 h-4.5 shrink-0"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -1932,7 +1932,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="font-extrabold text-slate-900 text-xs sm:text-sm">{ing.name}</span>
+                            <span className="font-extrabold text-slate-900 text-sm">{ing.name}</span>
                             <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-slate-200 text-slate-700">
                               {ing.rarity}
                             </span>
@@ -1957,7 +1957,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
 
               <button
                 onClick={() => setShowChecklistModal(false)}
-                className="w-full mt-3 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm cursor-pointer active:scale-95 transition-all duration-200 ease-out"
+                className="w-full mt-3 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 我知道了
               </button>
@@ -1979,7 +1979,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
               <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-2 border border-amber-200/60">
                 <Crown className="w-6 h-6 fill-amber-500 text-amber-500" />
               </div>
-              <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">获取抽卡币</h3>
+              <h3 className="font-extrabold text-slate-900 text-lg">获取抽卡币</h3>
               <p className="text-xs text-slate-400 mt-0.5 mb-3.5">
                 当前剩余: <strong className="text-slate-900 font-extrabold">{tokens}</strong> 币
               </p>
@@ -2066,7 +2066,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
               <div className="w-12 h-12 rounded-full bg-[#F2FCE0] text-[#26430B] flex items-center justify-center mx-auto mb-2 border border-[#C7F665]/60">
                 <Truck className="w-6 h-6 text-[#54801A]" />
               </div>
-              <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">🎉 达成 10 款起送！</h3>
+              <h3 className="font-extrabold text-slate-900 text-lg">🎉 达成 10 款起送！</h3>
               <p className="text-xs text-slate-500 mt-1.5 mb-4 leading-relaxed">
                 已集齐 10 款食材，专属免费配送订单已生成，后厨现制中。
               </p>
@@ -2076,7 +2076,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   onNavigate('orders');
                   onShowToast('🚚 免单配送订单已生成！正在极速配送中');
                 }}
-                className="w-full py-2.5 rounded-full bg-gradient-to-r from-[#54801A] to-[#54801A] text-white font-extrabold text-xs sm:text-sm shadow-xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
+                className="w-full py-2.5 rounded-full bg-gradient-to-r from-[#54801A] to-[#54801A] text-white font-extrabold text-sm shadow-xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 查看订单
               </button>

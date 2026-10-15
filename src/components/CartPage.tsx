@@ -51,7 +51,7 @@ export const CartPage: React.FC<CartPageProps> = ({
           <ShoppingBag className="w-10 h-10" />
         </div>
         <h3 className="text-lg font-bold text-slate-800">购物车还是空的</h3>
-        <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xs">
+        <p className="text-sm text-slate-400 mt-1 max-w-xs">
           甄选低脂轻食、减脂能量碗与0卡生椰酸奶昔正在热卖中
         </p>
         <button
@@ -175,7 +175,7 @@ export const CartPage: React.FC<CartPageProps> = ({
       <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Ticket className="w-4 h-4 text-[#EC4899]" />
-          <span className="text-xs sm:text-sm font-bold text-slate-800">轻食优惠券</span>
+          <span className="text-sm font-bold text-slate-800">轻食优惠券</span>
         </div>
         <div className="flex items-center gap-1">
           {selectedCoupon ? (
@@ -233,7 +233,7 @@ export const CartPage: React.FC<CartPageProps> = ({
       </div>
 
       {/* Bottom Floating Checkout Bar */}
-      <div className="absolute bottom-[72px] inset-x-0 z-30 px-3.5 sm:px-4 max-w-lg mx-auto pointer-events-none">
+      <div className="absolute bottom-[72px] inset-x-0 z-30 px-4 max-w-lg mx-auto pointer-events-none">
         <div className="pointer-events-auto flex items-center justify-between p-2.5 pl-4 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-800">
           <div>
             <span className="text-xs text-slate-400">实付 </span>
@@ -243,7 +243,7 @@ export const CartPage: React.FC<CartPageProps> = ({
           </div>
           <button
             onClick={onOpenCheckout}
-            className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-[#C7F665] hover:bg-[#B7EF4B] text-slate-900 font-black text-xs sm:text-sm shadow-md active:scale-95 transition-all duration-200 ease-out"
+            className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-[#C7F665] hover:bg-[#B7EF4B] text-slate-900 font-black text-sm shadow-md active:scale-95 transition-all duration-200 ease-out"
           >
             <span>去结算</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

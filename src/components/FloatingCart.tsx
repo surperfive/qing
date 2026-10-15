@@ -112,7 +112,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
       </AnimatePresence>
 
       {/* 2. Main Upward Expanding Cart Component */}
-      <div className="absolute bottom-[66px] sm:bottom-[70px] inset-x-3 sm:inset-x-4 z-45 pointer-events-none">
+      <div className="absolute bottom-[70px] inset-x-4 z-45 pointer-events-none">
         <motion.div
           layout
           transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
@@ -212,7 +212,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                         <div className="flex-1 min-w-0 pr-1">
                           <h4
                             onClick={() => onSelectDish?.(item.dish)}
-                            className="font-black text-xs sm:text-sm text-slate-900 truncate leading-tight cursor-pointer hover:text-[#54801A]"
+                            className="font-black text-sm text-slate-900 truncate leading-tight cursor-pointer hover:text-[#54801A]"
                           >
                             {item.dish.name}
                           </h4>
@@ -241,7 +241,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                           >
                             <Minus className="w-2.5 h-2.5" />
                           </button>
-                          <span className="text-xs sm:text-sm font-black text-slate-900 w-4 text-center">
+                          <span className="text-sm font-black text-slate-900 w-4 text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -289,9 +289,9 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
               {/* Price Line */}
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-xs sm:text-[13px] text-black font-extrabold">预计到手</span>
-                  <span className="text-xs sm:text-sm text-[#FF1458] font-black ml-0.5">¥</span>
-                  <span className="text-lg sm:text-xl font-black text-[#DB2777] leading-none">
+                  <span className="text-[13px] text-black font-extrabold">预计到手</span>
+                  <span className="text-sm text-[#FF1458] font-black ml-0.5">¥</span>
+                  <span className="text-xl font-black text-[#DB2777] leading-none">
                     {subtotal.toFixed(1)}
                   </span>
                   {originalSubtotal > subtotal && (
@@ -314,7 +314,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                 e.stopPropagation();
                 onOpenCheckout();
               }}
-              className="px-5 py-2 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 text-black text-xs sm:text-sm font-black shadow-xs transition-all duration-200 ease-out flex items-center gap-1.5 flex-shrink-0 border-2 border-black cursor-pointer"
+              className="px-5 py-2 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 text-black text-sm font-black shadow-xs transition-all duration-200 ease-out flex items-center gap-1.5 flex-shrink-0 border-2 border-black cursor-pointer"
             >
               <span>去结算</span>
               <div className="w-4 h-4 rounded-full bg-black flex items-center justify-center flex-shrink-0">

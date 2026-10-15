@@ -261,7 +261,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
       />
 
       {/* Top Header Banner - Pure Vector Artwork Header */}
-      <div id="menu-header-banner" className="relative w-full bg-[#C7F665] flex-shrink-0 select-none pt-2.5 sm:pt-3.5 pb-0">
+      <div id="menu-header-banner" className="relative w-full bg-[#C7F665] flex-shrink-0 select-none pt-3.5 pb-0">
         <img
           id="menu-banner-image"
           src="/ordering_header_banner.svg"
@@ -271,9 +271,9 @@ export const MenuPage: React.FC<MenuPageProps> = ({
       </div>
 
       {/* Main Content Container - Aligned right below header banner */}
-      <div className="relative z-20 bg-white flex flex-col flex-1 min-h-0 overflow-hidden mt-0 rounded-t-2xl sm:rounded-t-3xl shadow-xs">
+      <div className="relative z-20 bg-white flex flex-col flex-1 min-h-0 overflow-hidden mt-0 rounded-t-3xl shadow-xs">
         {/* Row 1: Mode Switch (外卖 / 自提) & Search Bar in the SAME ROW - Frosted Matte & Unified Alignment */}
-        <div className="flex-shrink-0 z-20 px-3 pt-3 pb-1.5 bg-white rounded-t-2xl sm:rounded-t-3xl flex items-center gap-2">
+        <div className="flex-shrink-0 z-20 px-3 pt-3 pb-1.5 bg-white rounded-t-3xl flex items-center gap-2">
           {/* Mode Toggle (Takeout / Pickup) Capsule - Aligned h-[34px] & Gray Background */}
           <div className="relative flex items-center h-[34px] bg-slate-100/90 p-0.5 rounded-full border border-slate-200/80 flex-shrink-0 select-none shadow-2xs">
             {/* 选中滑块走绿黑配色：青柠底 + 黑字，与下方热量筛选胶囊同一套语言
@@ -328,7 +328,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
           title="点击切换门店"
         >
           <MapPin className="w-3.5 h-3.5 text-slate-900 flex-shrink-0" />
-          <span className="font-extrabold text-slate-800 text-xs truncate max-w-[150px] sm:max-w-[220px]">
+          <span className="font-extrabold text-slate-800 text-xs truncate max-w-[220px]">
             {currentStore.name}
           </span>
           <span className="text-[11px] text-slate-400 font-medium whitespace-nowrap">
@@ -431,7 +431,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
       {/* Main Two-Column Layout (Left Category Rail + Right Dish List) */}
       <div className="flex flex-1 min-h-0 overflow-hidden bg-[#F5F6F8] relative">
         {/* Left Category Rail - Narrowed slightly for better viewport proportion and dish area space */}
-        <div className="w-[108px] sm:w-[116px] bg-white border-r border-slate-200/70 flex flex-col overflow-y-auto no-scrollbar py-2 pb-28 flex-shrink-0 relative">
+        <div className="w-[116px] bg-white border-r border-slate-200/70 flex flex-col overflow-y-auto no-scrollbar py-2 pb-28 flex-shrink-0 relative">
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -468,13 +468,13 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                     isActive ? 'text-black' : 'text-slate-400'
                   }`}
                 >
-                  <CategoryIcon id={cat.id} className="w-[22px] h-[22px] sm:w-[24px] sm:h-[24px]" isActive={isActive} />
+                  <CategoryIcon id={cat.id} className="w-[24px] h-[24px]" isActive={isActive} />
                 </div>
 
                 {/* Category Name & Badge */}
                 <div className="relative z-10 flex flex-col justify-center min-w-0 flex-1">
                   <span
-                    className={`text-[12px] sm:text-[12.5px] tracking-tight whitespace-nowrap leading-tight truncate ${
+                    className={`text-[12.5px] tracking-tight whitespace-nowrap leading-tight truncate ${
                       isActive ? 'text-black font-extrabold' : 'text-slate-500 font-semibold'
                     }`}
                   >
@@ -538,7 +538,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                       className="group cursor-pointer p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs hover:shadow-xs transition-all duration-200 flex gap-2.5 relative items-center active:scale-[0.98]"
                     >
                       {/* Dish Thumbnail */}
-                      <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0 flex items-center justify-center">
+                      <div className="relative w-22 h-22 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0 flex items-center justify-center">
                         <DishImage
                           src={dish.image}
                           alt={dish.name}
@@ -558,7 +558,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                       <div className="flex-1 min-w-0 flex flex-col justify-between self-stretch py-0.5">
                         <div>
                           <div className="flex items-center justify-between gap-1">
-                            <h4 className="font-extrabold text-slate-900 text-sm sm:text-[14.5px] leading-snug tracking-tight truncate group-hover:text-[#54801A] transition-colors">
+                            <h4 className="font-extrabold text-slate-900 text-[14.5px] leading-snug tracking-tight truncate group-hover:text-[#54801A] transition-colors">
                               {dish.name}
                             </h4>
                             <button
@@ -578,7 +578,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                             </button>
                           </div>
 
-                          <p className="text-[9.5px] sm:text-[10px] text-slate-400 font-normal truncate mt-0.5 leading-tight">
+                          <p className="text-[10px] text-slate-400 font-normal truncate mt-0.5 leading-tight">
                             {dish.subtitle || dish.description}
                           </p>
 
@@ -607,12 +607,12 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                         {/* Price & Stepper Control */}
                         <div className="flex items-center justify-between mt-1.5 pt-1">
                           <div className="flex items-baseline gap-0.5 min-w-0 leading-none">
-                            <span className="text-[11px] sm:text-xs font-bold text-[#E60012]">¥</span>
-                            <span className="text-base sm:text-lg font-black text-[#E60012] leading-none">
+                            <span className="text-xs font-bold text-[#E60012]">¥</span>
+                            <span className="text-lg font-black text-[#E60012] leading-none">
                               {dish.dealPrice}
                             </span>
                             {dish.originalPrice > dish.dealPrice && (
-                              <span className="text-[10px] sm:text-[10.5px] text-slate-300 line-through leading-none ml-1">
+                              <span className="text-[10.5px] text-slate-300 line-through leading-none ml-1">
                                 ¥{dish.originalPrice}
                               </span>
                             )}

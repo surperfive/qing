@@ -267,7 +267,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       <div
         style={{ backgroundColor: ingredientMeta.bgColor || '#26430B' }}
         className={`relative w-full flex-shrink-0 overflow-hidden flex items-center justify-center z-10 transition-all duration-300 ease-out ${
-          isScrolled ? 'h-[145px] sm:h-[155px]' : 'h-[205px] sm:h-[220px]'
+          isScrolled ? 'h-[155px]' : 'h-[220px]'
         }`}
       >
         {/* A. DYNAMIC INGREDIENT BACKGROUND (纯色补色背景 + 单一原料食材高级微距静物摄影) */}
@@ -381,7 +381,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           {/* Product Title, Subtitle & Heart Save Button */}
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h1 className="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-tight">
+              <h1 className="text-lg font-black text-slate-900 tracking-tight leading-tight">
                 {dish.name} {dish.name.includes('（') ? '' : '（首创）'}
               </h1>
               <p className="text-[11.5px] text-slate-500 font-medium mt-1.5 flex items-center gap-1.5 flex-wrap">
@@ -439,7 +439,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               setIsScrolled(scrolled);
             }
           }}
-          className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 pt-3 pb-28 space-y-5 sm:space-y-6 bg-white"
+          className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 pt-3 pb-28 space-y-6 bg-white"
         >
           {/* Spec 1: 杯型 / 份量规格 */}
           <div>
@@ -877,14 +877,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.28 }}
-        className="absolute bottom-0 inset-x-0 z-50 bg-white/75 backdrop-blur-xl border-t border-white/70 px-4 pt-3 pb-4.5 sm:pb-5 shadow-[0_-4px_24px_rgba(0,0,0,0.06)]"
+        className="absolute bottom-0 inset-x-0 z-50 bg-white/75 backdrop-blur-xl border-t border-white/70 px-4 pt-3 pb-5 shadow-[0_-4px_24px_rgba(0,0,0,0.06)]"
       >
         {/* Row 1: Price & Stepper with Price Analysis Bubble */}
         <div className="relative flex items-center justify-between">
           {/* Price with interactive breakdown trigger */}
           <div className="flex items-center gap-1 tracking-normal">
-            <span className="text-[13px] sm:text-[14px] font-bold text-[#E60012]">¥</span>
-            <span className="text-2xl sm:text-[26px] font-black text-[#E60012] tracking-tight leading-none">
+            <span className="text-[14px] font-bold text-[#E60012]">¥</span>
+            <span className="text-[26px] font-black text-[#E60012] tracking-tight leading-none">
               {totalDealPrice}
             </span>
             <span className="text-[10.5px] font-bold text-[#E60012] ml-0.5">首杯价</span>
@@ -922,10 +922,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.94 }}
                   transition={{ type: 'spring', damping: 25, stiffness: 360 }}
-                  className="absolute bottom-[calc(100%+12px)] left-0 sm:left-1 z-50 w-[295px] sm:w-[325px] bg-white/98 backdrop-blur-xl text-slate-800 rounded-2xl p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] border border-slate-200/90"
+                  className="absolute bottom-[calc(100%+12px)] left-1 z-50 w-[325px] bg-white/98 backdrop-blur-xl text-slate-800 rounded-2xl p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] border border-slate-200/90"
                 >
                   {/* Speech bubble downward pointer pointing to the Info icon */}
-                  <div className="absolute -bottom-1.5 left-24 sm:left-26 w-3 h-3 bg-white border-r border-b border-slate-200/90 rotate-45" />
+                  <div className="absolute -bottom-1.5 left-26 w-3 h-3 bg-white border-r border-b border-slate-200/90 rotate-45" />
 
                   {/* Header */}
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">

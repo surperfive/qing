@@ -57,15 +57,15 @@ export const BannerSlider: React.FC<BannerSliderProps> = ({ onBannerClick, class
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/30" />
 
                 {/* Slide Content */}
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end text-white pb-6">
+                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end text-white pb-6">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C7F665] text-[#26430B] text-[11px] font-black tracking-wide w-fit mb-2 shadow-sm backdrop-blur-xs">
                     <Sparkles className="w-3.5 h-3.5 text-[#26430B]" />
                     {slide.tag}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight drop-shadow-md line-clamp-1">
+                  <h3 className="text-2xl font-extrabold text-white leading-tight drop-shadow-md line-clamp-1">
                     {slide.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-200 font-medium opacity-95 line-clamp-1 mt-1">
+                  <p className="text-sm text-slate-200 font-medium opacity-95 line-clamp-1 mt-1">
                     {slide.desc}
                   </p>
                 </div>

@@ -39,8 +39,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-sm bg-white rounded-t-2xl sm:rounded-2xl p-6 flex flex-col shadow-2xl animate-in slide-in-from-bottom-5 duration-300">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+      <div className="w-full max-w-sm bg-white rounded-2xl p-6 flex flex-col shadow-2xl animate-in slide-in-from-bottom-5 duration-300">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-[#C7F665] font-black text-sm border border-[#C7F665]/30">
@@ -71,7 +71,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         <button
           onClick={handleWechatLogin}
           disabled={isLoading}
-          className="w-full py-3.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 ease-out disabled:opacity-60 mb-3 border border-[#C7F665]/30"
+          className="w-full py-3.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-extrabold text-sm shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 ease-out disabled:opacity-60 mb-3 border border-[#C7F665]/30"
         >
           {isLoading ? (
             <Loader2 className="w-4 h-4 animate-spin" />

@@ -30,7 +30,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1">
-            <span className="font-extrabold text-slate-900 text-sm truncate max-w-[130px] sm:max-w-[180px]">
+            <span className="font-extrabold text-slate-900 text-sm truncate max-w-[180px]">
               {currentStore.name}
             </span>
             <span className="text-xs text-slate-500 font-medium whitespace-nowrap">
@@ -38,7 +38,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
             </span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
           </div>
-          <p className="text-[11px] text-slate-500 truncate hidden sm:block">
+          <p className="text-[11px] text-slate-500 truncate hidden block">
             {currentStore.address}
           </p>
         </div>

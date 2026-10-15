@@ -211,7 +211,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="搜索餐品、卡路里(如: 300)、高蛋白..."
-                className="w-full bg-transparent text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
+                className="w-full bg-transparent text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
               />
               {query && (
                 <button
@@ -425,7 +425,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         className="p-2.5 bg-white rounded-xl border border-slate-200/80 hover:border-slate-300 shadow-2xs flex gap-2.5 cursor-pointer group active:scale-[0.98] transition-all duration-200 ease-out relative overflow-hidden items-stretch"
                       >
                         {/* Dish Image Thumbnail */}
-                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-lg overflow-hidden relative flex-shrink-0 bg-slate-100 border border-slate-100">
+                        <div className="w-22 h-22 rounded-lg overflow-hidden relative flex-shrink-0 bg-slate-100 border border-slate-100">
                           <DishImage
                             src={dish.image}
                             alt={dish.name}
@@ -440,7 +440,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                           <div>
                             {/* Title & Favorite */}
                             <div className="flex items-center justify-between gap-1">
-                              <h3 className="font-extrabold text-slate-900 text-sm sm:text-[14.5px] leading-snug tracking-tight group-hover:text-[#54801A] transition-colors truncate">
+                              <h3 className="font-extrabold text-slate-900 text-[14.5px] leading-snug tracking-tight group-hover:text-[#54801A] transition-colors truncate">
                                 {renderHighlightedText(dish.name, query)}
                               </h3>
                               <button
@@ -460,7 +460,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                             </div>
 
                             {/* Subtitle / Description */}
-                            <p className="text-[9.5px] sm:text-[10px] text-slate-400 font-normal truncate mt-0.5 leading-tight">
+                            <p className="text-[10px] text-slate-400 font-normal truncate mt-0.5 leading-tight">
                               {renderHighlightedText(dish.subtitle || dish.description, query)}
                             </p>
 
@@ -487,12 +487,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                           {/* Price & Add to Cart Stepper */}
                           <div className="flex items-center justify-between mt-1.5 pt-1">
                             <div className="flex items-baseline gap-0.5 min-w-0">
-                              <span className="text-[11px] sm:text-xs font-bold text-[#E60012]">¥</span>
-                              <span className="text-base sm:text-lg font-black text-[#E60012] leading-none">
+                              <span className="text-xs font-bold text-[#E60012]">¥</span>
+                              <span className="text-lg font-black text-[#E60012] leading-none">
                                 {dish.dealPrice}
                               </span>
                               {dish.originalPrice > dish.dealPrice && (
-                                <span className="text-[10px] sm:text-[10.5px] text-slate-300 line-through leading-none ml-1">
+                                <span className="text-[10.5px] text-slate-300 line-through leading-none ml-1">
                                   ¥{dish.originalPrice}
                                 </span>
                               )}
