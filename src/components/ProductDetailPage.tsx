@@ -2,6 +2,8 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Dish, OrderMode } from '../types';
 import { FoodCutoutRenderer } from './FoodCutoutRenderer';
+import { CheckBadge } from './CheckBadge';
+import { OPTION_CARD_SELECTED, OPTION_CARD_UNSELECTED } from '../tokens';
 import { getDishIngredientMeta } from '../utils/ingredientBackdrops';
 import {
   ChevronLeft,
@@ -460,23 +462,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => setSize('regular')}
                 className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all duration-200 ease-out active:scale-[0.98] border ${
                   size === 'regular'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? OPTION_CARD_SELECTED
+                    : OPTION_CARD_UNSELECTED
                 }`}
               >
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center shrink-0 transition-all ${
-                    size === 'regular' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {size === 'regular' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={size === 'regular'} className="absolute top-1.5 right-1.5" />
                 <motion.div
                   whileHover={{ scale: 1.12, rotate: -4, y: -1 }}
                   whileTap={{ scale: 0.92 }}
@@ -519,8 +509,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => setSize('large')}
                 className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all duration-200 ease-out active:scale-[0.98] border ${
                   size === 'large'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? OPTION_CARD_SELECTED
+                    : OPTION_CARD_UNSELECTED
                 }`}
               >
                 {/* Top-Left Floating Pill Badge — 青柠底黑字，抽卡页「10款起送」同款 */}
@@ -531,19 +521,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   {sizeLabels.large.badge}
                 </motion.span>
 
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center shrink-0 transition-all ${
-                    size === 'large' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {size === 'large' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={size === 'large'} className="absolute top-1.5 right-1.5" />
 
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: 6, y: -1.5 }}
@@ -595,48 +573,24 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => setTemperature('ice')}
                 className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   temperature === 'ice'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? `${OPTION_CARD_SELECTED} text-black`
+                    : `${OPTION_CARD_UNSELECTED} text-slate-600`
                 }`}
               >
                 {tempLabels.ice}
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                    temperature === 'ice' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {temperature === 'ice' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={temperature === 'ice'} className="absolute top-1.5 right-1.5" />
               </button>
               <button
                 type="button"
                 onClick={() => setTemperature('hot')}
                 className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   temperature === 'hot'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? `${OPTION_CARD_SELECTED} text-black`
+                    : `${OPTION_CARD_UNSELECTED} text-slate-600`
                 }`}
               >
                 {tempLabels.hot}
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                    temperature === 'hot' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {temperature === 'hot' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={temperature === 'hot'} className="absolute top-1.5 right-1.5" />
               </button>
             </div>
           </div>
@@ -657,8 +611,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     onClick={() => setBeanBase(opt.id as any)}
                     className={`relative p-2.5 pt-3.5 rounded-xl text-center flex flex-col items-center justify-between min-h-[56px] transition-all duration-200 ease-out active:scale-[0.98] border ${
                       isSelected
-                        ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
-                        : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
+                        ? OPTION_CARD_SELECTED
+                        : OPTION_CARD_UNSELECTED
                     }`}
                   >
                     {/* Top Floating Badge — 抽卡页的黑/青柠配对：
@@ -674,19 +628,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     </span>
 
                     {/* 右上角圆形勾选徽章（抽卡页食材卡同款） */}
-                    <span
-                      className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                        isSelected ? 'bg-[#C7F665]' : 'bg-white'
-                      }`}
-                    >
-                      {isSelected ? (
-                        <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                      )}
-                    </span>
+                    <CheckBadge selected={isSelected} className="absolute top-1.5 right-1.5" />
 
                     <div className={`font-black text-[11px] mt-0.5 leading-tight ${isSelected ? 'text-black' : 'text-slate-700'}`}>{opt.title}</div>
                     <div className={`text-[8px] mt-0.5 leading-tight line-clamp-1 ${isSelected ? 'text-[#54801A] font-bold' : 'text-slate-400'}`}>
@@ -710,48 +652,24 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => setStrength('default')}
                 className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   strength === 'default'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? `${OPTION_CARD_SELECTED} text-black`
+                    : `${OPTION_CARD_UNSELECTED} text-slate-600`
                 }`}
               >
                 {strengthLabels.default}
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                    strength === 'default' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {strength === 'default' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={strength === 'default'} className="absolute top-1.5 right-1.5" />
               </button>
               <button
                 type="button"
                 onClick={() => setStrength('extra')}
                 className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   strength === 'extra'
-                    ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
-                    : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
+                    ? `${OPTION_CARD_SELECTED} text-black`
+                    : `${OPTION_CARD_UNSELECTED} text-slate-600`
                 }`}
               >
                 {strengthLabels.extra}
-                <span
-                  className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                    strength === 'extra' ? 'bg-[#C7F665]' : 'bg-white'
-                  }`}
-                >
-                  {strength === 'extra' ? (
-                    <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                  )}
-                </span>
+                <CheckBadge selected={strength === 'extra'} className="absolute top-1.5 right-1.5" />
               </button>
             </div>
           </div>
@@ -777,24 +695,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       onClick={() => setSweetness(s.id as any)}
                       className={`relative py-2.5 px-3 rounded-xl text-center font-black text-[11.5px] transition-all duration-200 ease-out active:scale-[0.98] border ${
                         isSelected
-                          ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
-                          : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
+                          ? `${OPTION_CARD_SELECTED} text-black`
+                          : `${OPTION_CARD_UNSELECTED} text-slate-600`
                       }`}
                     >
                       <span className="truncate">{s.label}</span>
-                      <span
-                        className={`absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center transition-all ${
-                          isSelected ? 'bg-[#C7F665]' : 'bg-white'
-                        }`}
-                      >
-                        {isSelected ? (
-                          <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        ) : (
-                          <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                        )}
-                      </span>
+                      <CheckBadge selected={isSelected} className="absolute top-1.5 right-1.5" />
                     </button>
                   );
                 })}
@@ -818,8 +724,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     onClick={() => toggleAddon(addon.name)}
                     className={`relative py-2 px-2.5 rounded-xl text-left transition-all duration-200 ease-out active:scale-[0.98] border ${
                       isSelected
-                        ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
-                        : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
+                        ? OPTION_CARD_SELECTED
+                        : OPTION_CARD_UNSELECTED
                     }`}
                   >
                     {/* 勾选徽章改成抽卡页食材卡那枚右上角圆形徽章，
@@ -829,19 +735,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       <span className={`text-[11.5px] font-black leading-tight truncate ${isSelected ? 'text-black' : 'text-slate-700'}`}>
                         {addon.name}
                       </span>
-                      <span
-                        className={`w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center shrink-0 transition-all ${
-                          isSelected ? 'bg-[#C7F665]' : 'bg-white'
-                        }`}
-                      >
-                        {isSelected ? (
-                          <svg className="w-2 h-2 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        ) : (
-                          <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
-                        )}
-                      </span>
+                      <CheckBadge selected={isSelected} className="" />
                     </div>
                     <div className="flex items-center justify-between gap-1 mt-0.5">
                       <span className="text-[8.5px] text-slate-400">{addon.kcal}</span>

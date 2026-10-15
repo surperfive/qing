@@ -6,6 +6,8 @@ import { FoodCloche3D } from './FoodCloche3D';
 import { GachaBurstReveal } from './GachaBurstReveal';
 // 暂未接入：背景目前是内联 img + SVG 波浪层。见文件末尾「未接入的常量」说明。
 import { CloudSkyBackground } from './CloudSkyBackground';
+import { CheckBadge, CheckIcon } from './CheckBadge';
+import { OPTION_CARD_SELECTED, OPTION_CARD_UNSELECTED } from '../tokens';
 import { resumeAudio, warmUpAudio } from '../utils/audioContext';
 import { ingredientArt } from '../utils/ingredientArt';
 import {
@@ -1594,17 +1596,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   <span>{selectedIngredients.length === pantry.length ? '取消全选' : '全选'}</span>
                   {/* Black Circular Checkmark Badge with Gloss Highlight */}
                   <span className="relative w-4.5 h-4.5 rounded-full bg-black flex items-center justify-center shrink-0">
-                    <svg
-                      className="w-3 h-3 text-[#C7F665]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+                    <CheckIcon className="w-3 h-3 text-[#C7F665]" />
                     {/* Gloss accent */}
                     <span className="absolute top-[1.5px] right-[2px] w-1 h-1 rounded-full bg-white/70 pointer-events-none" />
                   </span>
@@ -1700,7 +1692,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                             /* 选中态：只保留外层青柠环，不要内层黑边。
                                仍保留 1px 透明边框占位，否则与未选中态之间会跳 1px 版。 */
                             ? 'bg-white border-transparent shadow-xs ring-2 ring-[#C7F665]'
-                            : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
+                            : OPTION_CARD_UNSELECTED
                         }`}
                       >
                         {/* Top Row: Rarity Tag (Left) & Selection Checkmark Badge (Right) */}
@@ -1723,27 +1715,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                           </div>
 
                           {/* Top-Right Circular Checkmark Badge with thick black outline */}
-                          <div
-                            className={`w-3.5 h-3.5 rounded-full border-[1.2px] border-black flex items-center justify-center shrink-0 transition-all ${
-                              isSelected ? 'bg-[#C7F665]' : 'bg-white'
-                            }`}
-                          >
-                            {isSelected ? (
-                              <svg
-                                className="w-2 h-2 text-black"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="3.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <polyline points="20 6 9 17 4 12" />
-                              </svg>
-                            ) : (
-                              <div className="w-0.5 h-0.5 rounded-full bg-slate-200" />
-                            )}
-                          </div>
+                          <CheckBadge selected={isSelected} />
                         </div>
 
                         {/* Center Food Visual: Clean 3D illustration comfortably scaled without overflow */}
