@@ -168,7 +168,7 @@ export const MePage: React.FC<MePageProps> = ({
           <button
             type="button"
             onClick={() => onShowToast('⚙️ 设置中心：消息通知与隐私设置已更新')}
-            className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-black text-white shadow-2xs transition-all hover:bg-black/80 active:scale-95"
+            className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-black text-white shadow-2xs transition-all duration-200 ease-out hover:bg-black/80 active:scale-95"
             title="设置"
           >
             <Settings className="h-3.5 w-3.5" />
@@ -259,7 +259,7 @@ export const MePage: React.FC<MePageProps> = ({
           <button
             type="button"
             onClick={onOpenLogin}
-            className="relative z-10 mt-3 rounded-full bg-black px-4 py-1.5 text-xs font-black text-[#C7F665] shadow-xs transition-all hover:bg-black/90 active:scale-95"
+            className="relative z-10 mt-3 rounded-full bg-black px-4 py-1.5 text-xs font-black text-[#C7F665] shadow-xs transition-all duration-200 ease-out hover:bg-black/90 active:scale-95"
           >
             去登录
           </button>
@@ -281,7 +281,7 @@ export const MePage: React.FC<MePageProps> = ({
                 <button
                   type="button"
                   onClick={a.onClick}
-                  className="group flex flex-1 cursor-pointer flex-col items-center justify-end"
+                  className="group flex flex-1 cursor-pointer flex-col items-center justify-end active:scale-95 transition-all duration-200 ease-out"
                 >
                   <div className="text-[27px] font-black leading-none tracking-[-0.02em] text-black">
                     {a.value}
@@ -305,7 +305,7 @@ export const MePage: React.FC<MePageProps> = ({
               if (!user.isLoggedIn) onOpenLogin();
               else onNavigate('orders');
             }}
-            className="relative col-span-7 flex cursor-pointer flex-col justify-between overflow-hidden rounded-[24px] bg-[#C7F665] p-4 shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.99]"
+            className="relative col-span-7 flex cursor-pointer flex-col justify-between overflow-hidden rounded-[24px] bg-[#C7F665] p-4 shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.98]"
           >
             <Doodle className="absolute right-3 bottom-3 w-7 h-4 text-black/70" />
 
@@ -330,7 +330,7 @@ export const MePage: React.FC<MePageProps> = ({
                 if (!user.isLoggedIn) onOpenLogin();
                 else onNavigate('orders');
               }}
-              className="relative z-10 mt-4 flex w-fit items-center gap-0.5 rounded-full bg-black px-3.5 py-2 text-[11.5px] font-black text-white transition-all active:scale-95"
+              className="relative z-10 mt-4 flex w-fit items-center gap-0.5 rounded-full bg-black px-3.5 py-2 text-[11.5px] font-black text-white transition-all duration-200 ease-out active:scale-95"
             >
               <span>{user.isLoggedIn ? '查看订单' : '去登录'}</span>
               <ChevronRight className="h-3.5 w-3.5 stroke-[3]" />
@@ -387,7 +387,7 @@ export const MePage: React.FC<MePageProps> = ({
             <button
               type="button"
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-0.5 rounded-full bg-[#C7F665] px-3 py-1.5 text-[11px] font-black text-black transition-all active:scale-95"
+              className="flex items-center gap-0.5 rounded-full bg-[#C7F665] px-3 py-1.5 text-[11px] font-black text-black transition-all duration-200 ease-out active:scale-95"
             >
               <span>{isExpanded ? '收起' : '展开全部'}</span>
               {isExpanded ? (
@@ -407,9 +407,9 @@ export const MePage: React.FC<MePageProps> = ({
                   key={f.label}
                   type="button"
                   onClick={() => onShowToast(f.toast)}
-                  className="group flex cursor-pointer flex-col items-center py-1"
+                  className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all group-hover:scale-105 group-active:scale-95">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
                     <Icon className="h-5 w-5 stroke-[2.2]" />
                   </div>
                   <span className="mt-1.5 text-[11px] font-black text-black">{f.label}</span>
@@ -421,9 +421,9 @@ export const MePage: React.FC<MePageProps> = ({
             <button
               type="button"
               onClick={onOpenNutritionReport}
-              className="group flex cursor-pointer flex-col items-center py-1"
+              className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all group-hover:scale-105 group-active:scale-95">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
                 <Heart className="h-5 w-5 stroke-[2.2]" />
               </div>
               <span className="mt-1.5 text-[11px] font-black text-black">口味定制</span>
@@ -442,9 +442,9 @@ export const MePage: React.FC<MePageProps> = ({
                     onClick={() =>
                       f.action ? f.action() : onShowToast(f.toast as string)
                     }
-                    className="group flex cursor-pointer flex-col items-center py-1"
+                    className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all group-hover:scale-105 group-active:scale-95">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
                       <Icon className="h-5 w-5 stroke-[2.2]" />
                     </div>
                     <span className="mt-1.5 text-[11px] font-black text-black">{f.label}</span>
@@ -456,10 +456,10 @@ export const MePage: React.FC<MePageProps> = ({
                 <button
                   type="button"
                   onClick={onTriggerLoading}
-                  className="group flex cursor-pointer flex-col items-center py-1"
+                  className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
                   title="重新体验开屏加载动画"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all group-hover:scale-105 group-active:scale-95">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
                     <Sparkles className="h-5 w-5 stroke-[2.2]" />
                   </div>
                   <span className="mt-1.5 text-[11px] font-black text-black">开屏动画</span>
@@ -469,46 +469,21 @@ export const MePage: React.FC<MePageProps> = ({
           )}
         </div>
 
-        {/* ⑤ 邀请好友 */}
+        {/* ⑤ 邀请好友 —— 2026-10-15 整卡换成用户提供的美术图
+            原先是「黑卡 + NEW 青柠斜标签 + 右侧空插画位 invite-art-slot（待补 jpg）」。
+            现在整卡就是一张图（public/invite-card.png，972x472），图里已自带文案和按钮，
+            所以 DOM 里不再手写标题/副标题/按钮，只保留圆角容器和点击 toast。
+            ⚠️ 图片本身 1024x506 但四周有 26/24px 白边，存进 public 前已裁到实际卡片。 */}
         <div
           onClick={() => onShowToast('🎉 邀请链接已复制，好友首单立享 9.9 元新人特权！')}
-          className="relative cursor-pointer overflow-hidden rounded-[24px] bg-black px-4 pb-4 pt-5 shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.99]"
+          className="cursor-pointer overflow-hidden rounded-[24px] shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.98]"
         >
-          {/* NEW 青柠斜标签 */}
-          <span className="absolute left-0 top-0 -rotate-[14deg] origin-top-left translate-x-1 translate-y-2 rounded-r-md rounded-l-sm bg-[#C7F665] px-2.5 py-1 text-[10px] font-black leading-none tracking-wide text-black">
-            NEW
-          </span>
-
-          <Star4 className="absolute right-[104px] top-4 h-4 w-4 text-[#C7F665]" />
-          <Star4 className="absolute right-3 bottom-4 h-3 w-3 text-[#C7F665]" />
-
-          <div className="relative z-10 max-w-[62%]">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[19px] font-black leading-none tracking-tight text-white">
-                邀请好友得
-              </span>
-              <span className="rounded-full bg-[#C7F665] px-2.5 py-1 text-[19px] font-black leading-none tracking-tight text-black">
-                9.9元
-              </span>
-            </div>
-            <p className="mt-2 text-[11.5px] font-black text-[#C7F665]">
-              — 新朋友首餐享专属福利 —
-            </p>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onShowToast('🎉 邀请链接已生成，快分享给好友吧！');
-              }}
-              className="mt-3 flex items-center gap-0.5 rounded-full bg-[#C7F665] px-3.5 py-1.5 text-[11.5px] font-black text-black transition-all active:scale-95"
-            >
-              <span>立即邀请</span>
-              <ChevronRight className="h-3.5 w-3.5 stroke-[3]" />
-            </button>
-          </div>
-
-          {/* 邀请插画位（待补 jpg） */}
-          <div className="invite-art-slot absolute bottom-0 right-0 h-[112px] w-[120px]" />
+          <img
+            src="/invite-card.png"
+            alt="邀请好友"
+            className="block h-auto w-full select-none"
+            draggable={false}
+          />
         </div>
 
         {/* ⑥ 送礼品卡 */}
@@ -529,7 +504,7 @@ export const MePage: React.FC<MePageProps> = ({
             {/* Special —— 青柠底 */}
             <div
               onClick={() => onShowToast('💝 已选择【元气轻享卡·¥50】，可直接赠送好友！')}
-              className="group flex cursor-pointer flex-col items-center"
+              className="group flex cursor-pointer flex-col items-center active:scale-95 transition-all duration-200 ease-out"
             >
               <div className="relative flex aspect-16/10 w-full flex-col justify-between overflow-hidden rounded-[18px] bg-gradient-to-br from-[#E4F8BC] via-[#C7F665] to-[#B7EF4B] p-2.5 transition-all group-hover:-translate-y-0.5 group-hover:shadow-md">
                 <div className="z-10 flex items-start justify-between">
@@ -554,7 +529,7 @@ export const MePage: React.FC<MePageProps> = ({
             {/* Classic —— 黑底 */}
             <div
               onClick={() => onShowToast('☕ 已选择【心动特饮卡·¥100】，可直接赠送好友！')}
-              className="group flex cursor-pointer flex-col items-center"
+              className="group flex cursor-pointer flex-col items-center active:scale-95 transition-all duration-200 ease-out"
             >
               <div className="relative flex aspect-16/10 w-full flex-col justify-between overflow-hidden rounded-[18px] bg-black p-2.5 transition-all group-hover:-translate-y-0.5 group-hover:shadow-md">
                 <div className="z-10 flex items-start justify-between">
@@ -584,7 +559,7 @@ export const MePage: React.FC<MePageProps> = ({
             <button
               type="button"
               onClick={onLogout}
-              className="flex w-full items-center justify-center gap-1.5 rounded-full bg-white py-3 text-xs font-black text-black transition-all hover:bg-black hover:text-[#C7F665] active:scale-[0.99]"
+              className="flex w-full items-center justify-center gap-1.5 rounded-full bg-white py-3 text-xs font-black text-black transition-all duration-200 ease-out hover:bg-black hover:text-[#C7F665] active:scale-[0.98]"
             >
               <LogOut className="h-4 w-4 stroke-[2.5]" />
               <span>退出登录 / 切换账号</span>

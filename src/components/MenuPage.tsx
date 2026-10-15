@@ -361,7 +361,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
             onClick={resetAllFilters}
             /* 有筛选生效时它不再是个普通胶囊，而是"当前筛了几项 + 一键重置"的状态入口，
                所以提到黑绿这一档；未选中态保持浅灰。 */
-            className="px-2.5 py-1 rounded-full bg-black hover:bg-slate-800 text-[#C7F665] text-[11px] font-black shadow-2xs active:scale-95 transition-all flex items-center gap-1 flex-shrink-0 cursor-pointer"
+            className="px-2.5 py-1 rounded-full bg-black hover:bg-slate-800 text-[#C7F665] text-[11px] font-black shadow-2xs active:scale-95 transition-all duration-200 ease-out flex items-center gap-1 flex-shrink-0 cursor-pointer"
             title="清空筛选"
           >
             <RotateCcw className="w-3 h-3 stroke-[2.5]" />
@@ -372,7 +372,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
             id="filter-all-btn"
             type="button"
             onClick={resetAllFilters}
-            className="px-2.5 py-1 rounded-full bg-slate-200/90 hover:bg-slate-300 text-slate-700 text-[11px] font-bold shadow-2xs border border-slate-300/50 active:scale-95 transition-all flex items-center gap-1 flex-shrink-0 cursor-pointer"
+            className="px-2.5 py-1 rounded-full bg-slate-200/90 hover:bg-slate-300 text-slate-700 text-[11px] font-bold shadow-2xs border border-slate-300/50 active:scale-95 transition-all duration-200 ease-out flex items-center gap-1 flex-shrink-0 cursor-pointer"
           >
             <span>全部</span>
           </button>
@@ -384,7 +384,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
         {/* Calorie Range Filters (大卡/热量筛选) */}
         <button
           onClick={() => toggleCalorieRange('under250')}
-          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
+          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all duration-200 ease-out active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
             filters.calorieRange === 'under250'
               ? 'bg-[#C7F665] text-black border border-transparent font-black shadow-2xs'
               : 'bg-slate-100/90 text-slate-600 hover:bg-slate-200/70 border border-slate-200/50'
@@ -399,7 +399,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
 
         <button
           onClick={() => toggleCalorieRange('250to400')}
-          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
+          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all duration-200 ease-out active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
             filters.calorieRange === '250to400'
               ? 'bg-[#C7F665] text-black border border-transparent font-black shadow-2xs'
               : 'bg-slate-100/90 text-slate-600 hover:bg-slate-200/70 border border-slate-200/50'
@@ -414,7 +414,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
 
         <button
           onClick={() => toggleCalorieRange('over400')}
-          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
+          className={`px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap flex items-center gap-1 flex-shrink-0 transition-all duration-200 ease-out active:scale-95 cursor-pointer outline-none focus:outline-none focus:ring-0 select-none ${
             filters.calorieRange === 'over400'
               ? 'bg-[#C7F665] text-black border border-transparent font-black shadow-2xs'
               : 'bg-slate-100/90 text-slate-600 hover:bg-slate-200/70 border border-slate-200/50'
@@ -518,7 +518,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                   </div>
                   <button
                     onClick={resetAllFilters}
-                    className="px-4 py-1.5 rounded-full bg-slate-900 text-[#C7F665] text-xs font-black shadow-2xs hover:bg-black active:scale-95 transition-all border border-[#C7F665]/30"
+                    className="px-4 py-1.5 rounded-full bg-slate-900 text-[#C7F665] text-xs font-black shadow-2xs hover:bg-black active:scale-95 transition-all duration-200 ease-out border border-[#C7F665]/30"
                   >
                     重置所有筛选
                   </button>
@@ -535,7 +535,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.18, delay: Math.min(index * 0.025, 0.15) }}
                       onClick={() => onSelectDish(dish)}
-                      className="group cursor-pointer p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs hover:shadow-xs transition-all duration-200 flex gap-2.5 relative items-center"
+                      className="group cursor-pointer p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs hover:shadow-xs transition-all duration-200 flex gap-2.5 relative items-center active:scale-[0.98]"
                     >
                       {/* Dish Thumbnail */}
                       <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0 flex items-center justify-center">
@@ -641,7 +641,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                                     <button
                                       type="button"
                                       onClick={() => onRemoveFromCart(dish)}
-                                      className="w-5 h-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 active:scale-90 flex items-center justify-center transition-all font-bold flex-shrink-0 border-0"
+                                      className="w-5 h-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 active:scale-95 flex items-center justify-center transition-all duration-200 ease-out font-bold flex-shrink-0 border-0"
                                       aria-label="减少一份"
                                     >
                                       <Minus className="w-2.5 h-2.5 stroke-[2.5]" />
@@ -662,7 +662,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                               <button
                                 type="button"
                                 onClick={() => onAddToCart(dish)}
-                                className="w-5 h-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-black active:scale-90 flex items-center justify-center transition-all font-black flex-shrink-0 border-0 shadow-none"
+                                className="w-5 h-5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-black active:scale-95 flex items-center justify-center transition-all duration-200 ease-out font-black flex-shrink-0 border-0 shadow-none"
                                 aria-label="增加一份"
                               >
                                 <Plus className="w-3 h-3 stroke-[3]" />

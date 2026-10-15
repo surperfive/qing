@@ -238,7 +238,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         {/* Left Back Arrow Circle */}
         <button
           onClick={onBack}
-          className="w-8 h-8 rounded-full bg-black/70 hover:bg-black/85 backdrop-blur-md text-[#C7F665] flex items-center justify-center active:scale-95 transition-all shadow-md"
+          className="w-8 h-8 rounded-full bg-black/70 hover:bg-black/85 backdrop-blur-md text-[#C7F665] flex items-center justify-center active:scale-95 transition-all duration-200 ease-out shadow-md"
           aria-label="返回"
         >
           <ChevronLeft className="w-4 h-4 stroke-[3]" />
@@ -404,7 +404,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               aria-label={isFav ? "已收藏" : "收藏"}
             >
               <span
-                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all active:scale-95 shadow-2xs ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 ease-out active:scale-95 shadow-2xs ${
                   isFav
                     ? 'bg-[#FDD3EA] border-[#FAB7D9]'
                     : 'bg-white border-slate-200/90 group-hover:bg-[#f1f4f8]'
@@ -458,7 +458,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setSize('regular')}
-                className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all active:scale-[0.98] border ${
+                className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all duration-200 ease-out active:scale-[0.98] border ${
                   size === 'regular'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -507,7 +507,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   <div className={`text-[11.5px] font-black leading-tight ${size === 'regular' ? 'text-black' : 'text-slate-600'}`}>
                     {sizeLabels.regular.title}
                   </div>
-                  <div className="text-[9.5px] font-medium text-slate-400 mt-0.5 leading-tight truncate">
+                  <div className={`text-[9.5px] font-medium mt-0.5 leading-tight truncate ${size === 'regular' ? 'text-[#54801A] font-bold' : 'text-slate-400'}`}>
                     {sizeLabels.regular.desc}
                   </div>
                 </div>
@@ -517,7 +517,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setSize('large')}
-                className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all active:scale-[0.98] border ${
+                className={`group relative py-2.5 px-3 rounded-xl text-left flex items-center gap-2.5 transition-all duration-200 ease-out active:scale-[0.98] border ${
                   size === 'large'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -575,7 +575,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   <div className={`text-[11.5px] font-black leading-tight ${size === 'large' ? 'text-black' : 'text-slate-600'}`}>
                     {sizeLabels.large.title}
                   </div>
-                  <div className="text-[9.5px] font-medium text-slate-400 mt-0.5 leading-tight truncate">
+                  <div className={`text-[9.5px] font-medium mt-0.5 leading-tight truncate ${size === 'large' ? 'text-[#54801A] font-bold' : 'text-slate-400'}`}>
                     {sizeLabels.large.desc}
                   </div>
                 </div>
@@ -593,7 +593,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setTemperature('ice')}
-                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all active:scale-[0.98] border ${
+                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   temperature === 'ice'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -617,7 +617,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setTemperature('hot')}
-                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all active:scale-[0.98] border ${
+                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   temperature === 'hot'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -655,7 +655,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     key={opt.id}
                     type="button"
                     onClick={() => setBeanBase(opt.id as any)}
-                    className={`relative p-2.5 pt-3.5 rounded-xl text-center flex flex-col items-center justify-between min-h-[56px] transition-all active:scale-[0.98] border ${
+                    className={`relative p-2.5 pt-3.5 rounded-xl text-center flex flex-col items-center justify-between min-h-[56px] transition-all duration-200 ease-out active:scale-[0.98] border ${
                       isSelected
                         ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
                         : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -708,7 +708,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setStrength('default')}
-                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all active:scale-[0.98] border ${
+                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   strength === 'default'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -732,7 +732,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <button
                 type="button"
                 onClick={() => setStrength('extra')}
-                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all active:scale-[0.98] border ${
+                className={`relative py-2.5 px-3 rounded-xl text-center text-[11.5px] font-black transition-all duration-200 ease-out active:scale-[0.98] border ${
                   strength === 'extra'
                     ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
                     : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -775,7 +775,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       key={s.id}
                       type="button"
                       onClick={() => setSweetness(s.id as any)}
-                      className={`relative py-2.5 px-3 rounded-xl text-center font-black text-[11.5px] transition-all active:scale-[0.98] border ${
+                      className={`relative py-2.5 px-3 rounded-xl text-center font-black text-[11.5px] transition-all duration-200 ease-out active:scale-[0.98] border ${
                         isSelected
                           ? 'bg-white border-transparent ring-2 ring-[#C7F665] text-black shadow-xs'
                           : 'bg-[#f7f9fb] border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -816,7 +816,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     key={addon.name}
                     type="button"
                     onClick={() => toggleAddon(addon.name)}
-                    className={`relative py-2 px-2.5 rounded-xl text-left transition-all active:scale-[0.98] border ${
+                    className={`relative py-2 px-2.5 rounded-xl text-left transition-all duration-200 ease-out active:scale-[0.98] border ${
                       isSelected
                         ? 'bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs'
                         : 'bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs'
@@ -899,7 +899,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               type="button"
               id="price-breakdown-trigger"
               onClick={() => setShowPriceBubble((prev) => !prev)}
-              className="w-6 h-6 ml-1 rounded-full bg-white border border-slate-200/90 flex items-center justify-center text-slate-600 hover:bg-[#f1f4f8] active:scale-90 transition-all cursor-pointer shadow-2xs"
+              className="w-6 h-6 ml-1 rounded-full bg-white border border-slate-200/90 flex items-center justify-center text-slate-600 hover:bg-[#f1f4f8] active:scale-95 transition-all duration-200 ease-out cursor-pointer shadow-2xs"
               title="点击查看价格分析气泡"
               aria-label="查看价格分析"
             >
@@ -941,7 +941,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowPriceBubble(false)}
-                      className="w-5 h-5 rounded-full bg-white border border-slate-200/90 hover:bg-[#f1f4f8] active:scale-90 flex items-center justify-center text-slate-500 transition-all cursor-pointer shadow-2xs"
+                      className="w-5 h-5 rounded-full bg-white border border-slate-200/90 hover:bg-[#f1f4f8] active:scale-95 flex items-center justify-center text-slate-500 transition-all duration-200 ease-out cursor-pointer shadow-2xs"
                       aria-label="关闭气泡"
                     >
                       <X className="w-3 h-3 stroke-[2.5]" />
@@ -1016,7 +1016,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               type="button"
               onClick={() => setQuantity((q) => Math.max(1, q - 1))}
               disabled={quantity <= 1}
-              className="w-7 h-7 rounded-full bg-white border border-slate-200/90 text-slate-700 flex items-center justify-center disabled:opacity-35 active:scale-95 transition-all hover:bg-[#f1f4f8] shadow-2xs"
+              className="w-7 h-7 rounded-full bg-white border border-slate-200/90 text-slate-700 flex items-center justify-center disabled:opacity-35 active:scale-95 transition-all duration-200 ease-out hover:bg-[#f1f4f8] shadow-2xs"
             >
               <Minus className="w-3.5 h-3.5 stroke-[2.4]" />
             </button>
@@ -1026,7 +1026,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             <button
               type="button"
               onClick={() => setQuantity((q) => Math.min(99, q + 1))}
-              className="w-7 h-7 rounded-full bg-black hover:bg-slate-800 text-[#C7F665] flex items-center justify-center active:scale-95 transition-all shadow-2xs"
+              className="w-7 h-7 rounded-full bg-black hover:bg-slate-800 text-[#C7F665] flex items-center justify-center active:scale-95 transition-all duration-200 ease-out shadow-2xs"
             >
               <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
             </button>
@@ -1051,14 +1051,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <button
             type="button"
             onClick={handleAddAction}
-            className="w-full py-3 rounded-full bg-[#f1f4f8] hover:bg-[#e6ebf2] active:scale-98 text-slate-900 font-black text-xs transition-all border border-slate-200/90 flex items-center justify-center"
+            className="w-full py-3 rounded-full bg-[#f1f4f8] hover:bg-[#e6ebf2] active:scale-[0.98] text-slate-900 font-black text-xs transition-all duration-200 ease-out border border-slate-200/90 flex items-center justify-center"
           >
             加入购物车
           </button>
           <button
             type="button"
             onClick={handleBuyAction}
-            className="w-full py-3 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-98 text-black font-black text-xs transition-all border-[2px] border-black shadow-[2px_2px_0_#000] flex items-center justify-center gap-1.5"
+            className="w-full py-3 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-[0.98] text-black font-black text-xs transition-all duration-200 ease-out border-[2px] border-black shadow-[2px_2px_0_#000] flex items-center justify-center gap-1.5"
           >
             立即购买
             <span className="w-4 h-4 rounded-full bg-black flex items-center justify-center shrink-0">

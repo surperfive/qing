@@ -95,7 +95,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               onSetMode("takeout");
               onNavigate("menu");
             }}
-            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all text-left min-h-[125px] overflow-hidden cursor-pointer"
+            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 ease-out text-left min-h-[125px] overflow-hidden cursor-pointer active:scale-[0.98]"
             id="home-takeout-card"
           >
             <div className="relative z-10">
@@ -136,7 +136,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               onSetMode("pickup");
               onNavigate("menu");
             }}
-            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all text-left min-h-[125px] overflow-hidden cursor-pointer"
+            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 ease-out text-left min-h-[125px] overflow-hidden cursor-pointer active:scale-[0.98]"
             id="home-pickup-card"
           >
             <div className="relative z-10">
@@ -166,7 +166,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* 3. Benefit Card */}
           <button
             onClick={() => setModalType("benefit")}
-            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all text-left min-h-[125px] overflow-hidden cursor-pointer"
+            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 ease-out text-left min-h-[125px] overflow-hidden cursor-pointer active:scale-[0.98]"
             id="home-benefit-card"
           >
             <div className="relative z-10">
@@ -195,7 +195,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* 4. Gacha Card */}
           <button
             onClick={() => onNavigate("gacha")}
-            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all text-left min-h-[125px] overflow-hidden cursor-pointer"
+            className="group relative flex flex-col px-3.5 pt-2.5 pb-1 bg-white rounded-[22px] border border-slate-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 ease-out text-left min-h-[125px] overflow-hidden cursor-pointer active:scale-[0.98]"
             id="home-gacha-card"
           >
             <div className="relative z-10">
@@ -244,7 +244,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <button
             onClick={() => onNavigate("menu")}
-            className="px-3.5 py-1 rounded-full bg-black text-white text-xs font-black flex items-center gap-0.5 hover:bg-slate-800 active:scale-95 transition-all cursor-pointer shadow-2xs shrink-0"
+            className="px-3.5 py-1 rounded-full bg-black text-white text-xs font-black flex items-center gap-0.5 hover:bg-slate-800 active:scale-95 transition-all duration-200 ease-out cursor-pointer shadow-2xs shrink-0"
           >
             <span>查看更多</span>
             <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
@@ -266,7 +266,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 onNavigate("menu");
               }
             }}
-            className="cursor-pointer bg-[#111111] rounded-[22px] p-3 sm:p-3.5 text-white relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all group"
+            className="cursor-pointer bg-[#111111] rounded-[22px] p-3 sm:p-3.5 text-white relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
             id="home-signature-card"
           >
             <div>
@@ -321,7 +321,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Right Warm Yellow Card: 邀请新人享免单 */}
           <div
             onClick={() => setModalType("invite")}
-            className="cursor-pointer bg-gradient-to-b from-[#FFFDF0] via-[#FFFBE8] to-[#FFF3C4] rounded-[22px] p-3 sm:p-3.5 border border-[#FDE68A]/70 relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all group"
+            className="cursor-pointer bg-gradient-to-b from-[#FFFDF0] via-[#FFFBE8] to-[#FFF3C4] rounded-[22px] p-3 sm:p-3.5 border border-[#FDE68A]/70 relative overflow-hidden flex flex-col justify-between min-h-[200px] sm:min-h-[220px] shadow-sm hover:shadow-md transition-all duration-200 ease-out group active:scale-[0.98]"
             id="home-invite-card"
           >
             {/* Top right handwritten doodle */}
@@ -354,7 +354,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   e.stopPropagation();
                   setModalType("invite");
                 }}
-                className="mt-2.5 px-3 py-1 rounded-full bg-[#C7F665] hover:bg-[#C7F665] text-black font-black text-xs inline-flex items-center gap-0.5 shadow-2xs cursor-pointer active:scale-95 transition-all"
+                className="mt-2.5 px-3 py-1 rounded-full bg-[#C7F665] hover:bg-[#C7F665] text-black font-black text-xs inline-flex items-center gap-0.5 shadow-2xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 <span>立即邀请</span>
                 <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
@@ -387,7 +387,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
           <button
             onClick={() => onNavigate('menu')}
-            className="text-[11px] sm:text-xs text-slate-500 font-bold hover:text-slate-800 flex items-center gap-0.5 whitespace-nowrap transition-colors cursor-pointer"
+            className="text-[11px] sm:text-xs text-slate-500 font-bold hover:text-slate-800 flex items-center gap-0.5 whitespace-nowrap transition-colors duration-200 ease-out cursor-pointer active:scale-95"
           >
             <span>全部菜单</span>
             <ChevronRight className="w-3 h-3 stroke-[2]" />
@@ -399,7 +399,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div
               key={dish.id}
               onClick={() => onSelectDish(dish)}
-              className="group cursor-pointer bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden text-left"
+              className="group cursor-pointer bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md transition-all duration-200 ease-out flex flex-col overflow-hidden text-left active:scale-[0.98]"
             >
               {/* Dish Image */}
               <div className="relative h-28 sm:h-30 w-full overflow-hidden bg-slate-100">
@@ -458,7 +458,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       e.stopPropagation();
                       onSelectDish(dish);
                     }}
-                    className="w-6 h-6 rounded-full bg-slate-900 hover:bg-black active:scale-95 text-[#C7F665] flex items-center justify-center shadow-xs transition-all border border-[#C7F665]/30 shrink-0 cursor-pointer"
+                    className="w-6 h-6 rounded-full bg-slate-900 hover:bg-black active:scale-95 text-[#C7F665] flex items-center justify-center shadow-xs transition-all duration-200 ease-out border border-[#C7F665]/30 shrink-0 cursor-pointer"
                     aria-label={`查看详情：${dish.name}`}
                   >
                     <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -565,7 +565,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 {!benefitClaimed ? (
                   <button
                     onClick={handleClaimBenefits}
-                    className="w-full py-3 rounded-xl bg-slate-900 text-[#C7F665] font-black text-sm hover:bg-black active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-md border border-[#C7F665]/30"
+                    className="w-full py-3 rounded-xl bg-slate-900 text-[#C7F665] font-black text-sm hover:bg-black active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-1.5 shadow-md border border-[#C7F665]/30"
                   >
                     <Gift className="w-4 h-4" />
                     <span>一键全部领取到券包</span>
@@ -576,7 +576,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       setModalType(null);
                       onNavigate('menu');
                     }}
-                    className="w-full py-3 rounded-xl bg-[#54801A] text-white font-black text-sm hover:bg-[#26430B] active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-md"
+                    className="w-full py-3 rounded-xl bg-[#54801A] text-white font-black text-sm hover:bg-[#26430B] active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-1.5 shadow-md"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>已存入券包，立即去点单</span>
@@ -641,7 +641,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className={`px-3 py-1.5 rounded-lg text-xs font-black transition-all flex items-center gap-1 ${
                     copiedCode
                       ? 'bg-[#54801A] text-white'
-                      : 'bg-slate-900 text-[#C7F665] hover:bg-black active:scale-95'
+                      : 'bg-slate-900 text-[#C7F665] hover:bg-black active:scale-95 transition-all duration-200 ease-out'
                   }`}
                 >
                   {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -675,7 +675,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="space-y-2">
                 <button
                   onClick={handleCopyInviteCode}
-                  className="w-full py-3 rounded-xl bg-amber-500 text-white font-black text-sm hover:bg-amber-600 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-md"
+                  className="w-full py-3 rounded-xl bg-amber-500 text-white font-black text-sm hover:bg-amber-600 active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-1.5 shadow-md"
                 >
                   <Share2 className="w-4 h-4" />
                   <span>立即分享邀请好友</span>
@@ -745,7 +745,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 {!redPacketClaimed ? (
                   <button
                     onClick={handleClaimRedPacket}
-                    className="w-full py-3 rounded-xl bg-amber-300 text-[#831843] font-black text-sm hover:bg-amber-400 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-lg"
+                    className="w-full py-3 rounded-xl bg-amber-300 text-[#831843] font-black text-sm hover:bg-amber-400 active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-1.5 shadow-lg"
                   >
                     <Gift className="w-4 h-4" />
                     <span>立即存入我的券包</span>
@@ -756,7 +756,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       setModalType(null);
                       onNavigate('menu');
                     }}
-                    className="w-full py-3 rounded-xl bg-white text-[#DB2777] font-black text-sm hover:bg-[#FDD3EA] active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-lg"
+                    className="w-full py-3 rounded-xl bg-white text-[#DB2777] font-black text-sm hover:bg-[#FDD3EA] active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-1.5 shadow-lg"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>已放入券包，去点餐抵扣</span>

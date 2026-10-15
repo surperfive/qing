@@ -197,7 +197,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all flex-shrink-0"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all duration-200 ease-out flex-shrink-0"
             >
               <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
             </button>
@@ -231,7 +231,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             {query ? (
               <button
                 type="submit"
-                className="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-black text-[#C7F665] text-xs font-black border border-[#C7F665]/30 shadow-2xs active:scale-95 transition-all flex-shrink-0"
+                className="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-black text-[#C7F665] text-xs font-black border border-[#C7F665]/30 shadow-2xs active:scale-95 transition-all duration-200 ease-out flex-shrink-0"
               >
                 搜索
               </button>
@@ -273,7 +273,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <button
                         key={idx}
                         onClick={() => handleSelectKeyword(item)}
-                        className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 text-xs font-medium active:scale-95 transition-all truncate max-w-[150px]"
+                        className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 text-xs font-medium active:scale-95 transition-all duration-200 ease-out truncate max-w-[150px]"
                       >
                         {item}
                       </button>
@@ -301,7 +301,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <div
                         key={item.rank}
                         onClick={() => handleSelectKeyword(item.keyword)}
-                        className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-slate-100/90 cursor-pointer border border-slate-100 active:scale-98 transition-all"
+                        className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-slate-100/90 cursor-pointer border border-slate-100 active:scale-[0.98] transition-all duration-200 ease-out"
                       >
                         {/* Rank Badge */}
                         <div
@@ -340,7 +340,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     <div
                       key={i}
                       onClick={() => handleSelectKeyword(filter.query)}
-                      className="p-2.5 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100/60 border border-slate-200/60 hover:border-slate-400 cursor-pointer flex items-center justify-between group active:scale-98 transition-all"
+                      className="p-2.5 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100/60 border border-slate-200/60 hover:border-slate-400 cursor-pointer flex items-center justify-between group active:scale-[0.98] transition-all duration-200 ease-out"
                     >
                       <div className="flex items-center gap-2">
                         <span className="text-base">{filter.icon}</span>
@@ -422,7 +422,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <div
                         key={dish.id}
                         onClick={() => onSelectDish(dish)}
-                        className="p-2.5 bg-white rounded-xl border border-slate-200/80 hover:border-slate-300 shadow-2xs flex gap-2.5 cursor-pointer group active:scale-[0.99] transition-all relative overflow-hidden items-stretch"
+                        className="p-2.5 bg-white rounded-xl border border-slate-200/80 hover:border-slate-300 shadow-2xs flex gap-2.5 cursor-pointer group active:scale-[0.98] transition-all duration-200 ease-out relative overflow-hidden items-stretch"
                       >
                         {/* Dish Image Thumbnail */}
                         <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-lg overflow-hidden relative flex-shrink-0 bg-slate-100 border border-slate-100">
@@ -521,7 +521,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                                       <button
                                         type="button"
                                         onClick={() => onRemoveFromCart(dish)}
-                                        className="w-4.5 h-4.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 active:scale-90 flex items-center justify-center transition-all font-bold flex-shrink-0 border-0"
+                                        className="w-4.5 h-4.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 active:scale-95 flex items-center justify-center transition-all duration-200 ease-out font-bold flex-shrink-0 border-0"
                                         aria-label="减少一份"
                                       >
                                         <Minus className="w-2.5 h-2.5 stroke-[2.5]" />
@@ -542,7 +542,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                                 <button
                                   type="button"
                                   onClick={() => onAddToCart(dish)}
-                                  className="w-4.5 h-4.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-black active:scale-90 flex items-center justify-center transition-all flex-shrink-0 font-bold border-0 shadow-none"
+                                  className="w-4.5 h-4.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 hover:text-black active:scale-95 flex items-center justify-center transition-all duration-200 ease-out flex-shrink-0 font-bold border-0 shadow-none"
                                   aria-label="增加一份"
                                 >
                                   <Plus className="w-2.8 h-2.8 stroke-[2.5]" />
@@ -572,7 +572,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                   <button
                     onClick={() => setQuery('')}
-                    className="px-4 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold active:scale-95 transition-all inline-flex items-center gap-1"
+                    className="px-4 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold active:scale-95 transition-all duration-200 ease-out inline-flex items-center gap-1"
                   >
                     <span>清除搜索词</span>
                   </button>
@@ -589,7 +589,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         <div
                           key={dish.id}
                           onClick={() => onSelectDish(dish)}
-                          className="p-2 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 cursor-pointer flex items-center gap-2 group"
+                          className="p-2 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 cursor-pointer flex items-center gap-2 group active:scale-[0.98] transition-all duration-200 ease-out"
                         >
                           <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
                             <DishImage

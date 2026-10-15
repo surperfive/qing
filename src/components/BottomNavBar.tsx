@@ -40,7 +40,7 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
             <button
               key={tab.id}
               onClick={() => onSelectTab(tab.id)}
-              className="flex-1 flex flex-col items-center justify-center cursor-pointer select-none transition-transform active:scale-95 group py-0.5"
+              className="flex-1 flex flex-col items-center justify-center cursor-pointer select-none transition-transform duration-200 ease-out active:scale-95 group py-0.5"
               id={`nav-tab-${tab.id}`}
             >
               {/* Icon container */}

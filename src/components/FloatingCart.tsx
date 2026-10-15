@@ -158,7 +158,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                       onClearCart();
                       setIsExpanded(false);
                     }}
-                    className="flex items-center gap-1 text-[11px] text-slate-400 hover:text-[#EC4899] transition-colors font-bold cursor-pointer"
+                    className="flex items-center gap-1 text-[11px] text-slate-400 hover:text-[#EC4899] transition-colors duration-200 ease-out font-bold cursor-pointer active:scale-95"
                   >
                     <Trash2 className="w-3 h-3" />
                     <span>清空购物车</span>
@@ -237,7 +237,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                           <button
                             type="button"
                             onClick={() => onRemoveFromCart(item.dish)}
-                            className="w-5 h-5 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-slate-500 active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+                            className="w-5 h-5 rounded-full border border-slate-300 bg-white text-slate-700 hover:border-slate-500 active:scale-95 flex items-center justify-center transition-all duration-200 ease-out cursor-pointer"
                           >
                             <Minus className="w-2.5 h-2.5" />
                           </button>
@@ -247,7 +247,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                           <button
                             type="button"
                             onClick={() => onAddToCart(item.dish)}
-                            className="w-5 h-5 rounded-full bg-[#C7F665] border border-black text-black hover:bg-[#B7EF4B] active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+                            className="w-5 h-5 rounded-full bg-[#C7F665] border border-black text-black hover:bg-[#B7EF4B] active:scale-95 flex items-center justify-center transition-all duration-200 ease-out cursor-pointer"
                           >
                             <Plus className="w-2.5 h-2.5 stroke-[2.5]" />
                           </button>
@@ -263,7 +263,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
           {/* B. Integrated Bottom Bar */}
           <div
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full cursor-pointer flex items-center justify-between p-1.5 pl-3 select-none"
+            className="w-full cursor-pointer flex items-center justify-between p-1.5 pl-3 select-none active:scale-[0.98] transition-all duration-200 ease-out"
           >
             {/* Left: Mascot Bag Icon & Total Price */}
             <div className="flex items-center gap-2.5">
@@ -314,7 +314,7 @@ export const FloatingCart: React.FC<FloatingCartProps> = ({
                 e.stopPropagation();
                 onOpenCheckout();
               }}
-              className="px-5 py-2 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 text-black text-xs sm:text-sm font-black shadow-xs transition-all flex items-center gap-1.5 flex-shrink-0 border-2 border-black cursor-pointer"
+              className="px-5 py-2 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 text-black text-xs sm:text-sm font-black shadow-xs transition-all duration-200 ease-out flex items-center gap-1.5 flex-shrink-0 border-2 border-black cursor-pointer"
             >
               <span>去结算</span>
               <div className="w-4 h-4 rounded-full bg-black flex items-center justify-center flex-shrink-0">

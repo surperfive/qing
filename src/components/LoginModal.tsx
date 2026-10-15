@@ -71,7 +71,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         <button
           onClick={handleWechatLogin}
           disabled={isLoading}
-          className="w-full py-3.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 active:scale-98 transition-all disabled:opacity-60 mb-3 border border-[#C7F665]/30"
+          className="w-full py-3.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 ease-out disabled:opacity-60 mb-3 border border-[#C7F665]/30"
         >
           {isLoading ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -106,7 +106,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
             />
             <button
               type="submit"
-              className="px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-black text-xs active:scale-95 transition-all border border-[#C7F665]/30"
+              className="px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-black text-[#C7F665] font-black text-xs active:scale-95 transition-all duration-200 ease-out border border-[#C7F665]/30"
             >
               验证码登录
             </button>

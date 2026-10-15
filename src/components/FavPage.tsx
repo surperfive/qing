@@ -41,7 +41,7 @@ export const FavPage: React.FC<FavPageProps> = ({
           <button
             type="button"
             onClick={() => onNavigate('menu')}
-            className="flex items-center gap-1 bg-black text-white px-3.5 py-1 rounded-full text-xs font-black shadow-2xs border border-black hover:bg-black/85 active:scale-95 transition-all"
+            className="flex items-center gap-1 bg-black text-white px-3.5 py-1 rounded-full text-xs font-black shadow-2xs border border-black hover:bg-black/85 active:scale-95 transition-all duration-200 ease-out"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C7F665]" />
             <span>发现更多</span>
@@ -62,7 +62,7 @@ export const FavPage: React.FC<FavPageProps> = ({
             </p>
             <button
               onClick={() => onNavigate('menu')}
-              className="mt-5 px-6 py-2.5 rounded-full bg-black hover:bg-black/90 text-[#C7F665] text-xs font-black shadow-none border-[1.5px] border-black active:scale-95 transition-all flex items-center gap-1.5"
+              className="mt-5 px-6 py-2.5 rounded-full bg-black hover:bg-black/90 text-[#C7F665] text-xs font-black shadow-none border-[1.5px] border-black active:scale-95 transition-all duration-200 ease-out flex items-center gap-1.5"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#C7F665]" />
               <span>浏览全菜单</span>
@@ -74,7 +74,7 @@ export const FavPage: React.FC<FavPageProps> = ({
               <div
                 key={dish.id}
                 onClick={() => onSelectDish(dish)}
-                className="cursor-pointer p-3.5 rounded-[22px] bg-white border-[2px] border-black shadow-xs hover:shadow-md transition-all flex items-center gap-3.5"
+                className="cursor-pointer p-3.5 rounded-[22px] bg-white border-[2px] border-black shadow-xs hover:shadow-md transition-all duration-200 ease-out flex items-center gap-3.5 active:scale-[0.98]"
               >
                 <div className="w-20 h-20 rounded-[16px] overflow-hidden bg-[#f4f7fa] border-[1.8px] border-black flex-shrink-0">
                   <DishImage
@@ -124,7 +124,7 @@ export const FavPage: React.FC<FavPageProps> = ({
                         e.stopPropagation();
                         onAddToCart(dish);
                       }}
-                      className="flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-black text-[#C7F665] text-xs font-black shadow-none hover:bg-black/90 active:scale-95 transition-all border-[1.5px] border-black"
+                      className="flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-black text-[#C7F665] text-xs font-black shadow-none hover:bg-black/90 active:scale-95 transition-all duration-200 ease-out border-[1.5px] border-black"
                     >
                       <Plus className="w-3.5 h-3.5 stroke-[3]" />
                       <span>加入购物车</span>

@@ -109,7 +109,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
           <button
             type="button"
             onClick={() => onShowToast('🧾 电子发票助手：支持多单合并开票与数电发票')}
-            className="flex items-center gap-1 bg-black text-white px-3 py-1 rounded-full text-xs font-black shadow-2xs hover:bg-black/80 active:scale-95 transition-all"
+            className="flex items-center gap-1 bg-black text-white px-3 py-1 rounded-full text-xs font-black shadow-2xs hover:bg-black/80 active:scale-95 transition-all duration-200 ease-out"
           >
             <ReceiptText className="w-3.5 h-3.5 text-[#C7F665]" />
             <span>发票服务</span>
@@ -178,7 +178,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
             </p>
             <button
               onClick={() => onNavigate('menu')}
-              className="mt-5 px-6 py-2.5 rounded-full bg-black hover:bg-black/90 text-[#C7F665] text-xs font-black shadow-none active:scale-95 transition-all flex items-center gap-1.5"
+              className="mt-5 px-6 py-2.5 rounded-full bg-black hover:bg-black/90 text-[#C7F665] text-xs font-black shadow-none active:scale-95 transition-all duration-200 ease-out flex items-center gap-1.5"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#C7F665]" />
               <span>去选一单美味</span>
@@ -344,7 +344,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
                   {order.status === 'delivering' && (
                     <button
                       onClick={() => onShowToast('🛵 骑手正在全速派送中，预计 10 分钟内送达！')}
-                      className="flex-1 h-9 px-3 rounded-full bg-white border border-slate-200 flex items-center justify-center gap-1.5 shadow-2xs hover:bg-slate-50 active:scale-95 transition-all cursor-pointer"
+                      className="flex-1 h-9 px-3 rounded-full bg-white border border-slate-200 flex items-center justify-center gap-1.5 shadow-2xs hover:bg-slate-50 active:scale-95 transition-all duration-200 ease-out cursor-pointer"
                     >
                       <MapPin className="w-3.5 h-3.5 text-black fill-black flex-shrink-0" />
                       <span className="text-xs font-black text-black whitespace-nowrap">
@@ -356,7 +356,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
                   {order.status !== 'completed' && (
                     <button
                       onClick={() => onShowToast('⚡ 已为您向门店加急催单，后厨正在优先制作！')}
-                      className="h-9 px-3.5 sm:px-4 rounded-full bg-[#fef075] flex items-center justify-center gap-1.5 shadow-2xs hover:bg-[#faea5a] active:scale-95 transition-all cursor-pointer"
+                      className="h-9 px-3.5 sm:px-4 rounded-full bg-[#fef075] flex items-center justify-center gap-1.5 shadow-2xs hover:bg-[#faea5a] active:scale-95 transition-all duration-200 ease-out cursor-pointer"
                     >
                       <Bell className="w-3.5 h-3.5 text-black fill-black flex-shrink-0" />
                       <span className="text-xs font-black text-black whitespace-nowrap">
@@ -367,7 +367,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
 
                   <button
                     onClick={() => onReorder(order)}
-                    className="h-9 px-4 rounded-full bg-black flex items-center justify-center gap-1.5 shadow-xs hover:bg-black/90 active:scale-95 transition-all cursor-pointer"
+                    className="h-9 px-4 rounded-full bg-black flex items-center justify-center gap-1.5 shadow-xs hover:bg-black/90 active:scale-95 transition-all duration-200 ease-out cursor-pointer"
                   >
                     <RotateCcw className="w-3.5 h-3.5 text-[#C7F665] stroke-[2.8] flex-shrink-0" />
                     <span className="text-xs font-black text-[#C7F665] whitespace-nowrap">
@@ -378,7 +378,7 @@ export const OrdersPage: React.FC<OrdersPageProps> = ({
                   {order.status === 'completed' && (
                     <button
                       onClick={() => onShowToast('⭐ 感谢评价！已赠送 50 会员积分')}
-                      className="flex-1 h-9 px-3.5 rounded-full border border-slate-200 bg-white text-black text-xs font-black hover:bg-slate-50 active:scale-95 transition-all shadow-2xs flex items-center justify-center gap-1.5"
+                      className="flex-1 h-9 px-3.5 rounded-full border border-slate-200 bg-white text-black text-xs font-black hover:bg-slate-50 active:scale-95 transition-all duration-200 ease-out shadow-2xs flex items-center justify-center gap-1.5"
                     >
                       <MessageSquare className="w-3.5 h-3.5 stroke-[2.5]" />
                       <span>去评价</span>

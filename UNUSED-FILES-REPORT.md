@@ -1,132 +1,88 @@
-# 剩余可删除清单
+# 项目文件清理报告（已完成）
 
-> 更新时间：2026-10-14 22:2x · 扫描脚本 `scripts/scan-unused.mjs`（只读）
-> **⚠️ 本清单仍是报告，我没有删除任何文件。**
+> 完成时间：2026-10-14 · 扫描脚本 `scripts/scan-unused.mjs`（只读，可随时重跑复核）
 
-## 已完成（上一轮，共约 33 M）
+## 体积变化
+
+| | 清理前 | 清理后 |
+|---|---|---|
+| 项目总计（含 node_modules） | 457 M | **约 290 M** |
+| 不含 node_modules / .git | 179 M | **31 M** |
+| `.git` | 89 M | **8.7 M** |
+| `node_modules` | 278 M | 约 254 M |
+
+---
+
+## 第一轮（2026-10-14 下午，约 33 M）
 
 | 档 | 内容 | 结果 |
 |---|---|---|
-| 1 | `dist/`（构建产物） | ✅ 已删 |
-| 2 | 3 个零引用组件（`MenuCouponBar` / `NutritionModal` / `GachaIngredientIcons`） | ✅ 已删 |
-| 3 | 8 个根目录重复文件 | ✅ 已删 |
-| 4+5 | 16 个 `public/` 未引用素材 | ✅ 已删 |
-| 5 | `.backup-src/`、`.backup-src2/`、`assets/`、`bun.lock`、`build_svg_part*.py` | ✅ 已删 |
+| 1 | `dist/`（构建产物） | ✅ 进回收站 |
+| 2 | 3 个零引用组件 `MenuCouponBar.tsx` / `NutritionModal.tsx` / `GachaIngredientIcons.tsx` | ✅ |
+| 3 | 8 个根目录重复文件（`public/` 有逐字节相同副本） | ✅ |
+| 4 | 16 个 `public/` 零引用素材 | ✅ |
+| 5 | `.backup-src/`、`.backup-src2/`、`assets/`、`bun.lock`、`build_svg_part*.py` | ✅ |
 
-**回滚方式**：`git checkout HEAD -- <路径>`（快照 commit `b506996`）；文件也在回收站里。
+## 第二轮（2026-10-14 晚，约 168 M）
+
+| 档 | 内容 | 结果 |
+|---|---|---|
+| A | `probe-out/` 整个（59.1 M） | ✅ |
+| A | `outputs/` 旧任务 10 项（保留 `home-ref` / `red-unify` / `reveal-pill` / `detail-ui` / `card-price`） | ✅ 20.5 M → 16 M |
+| C | `.git` 去掉产出目录的 blob（`git rm --cached` + `--amend` + `reflog expire` + `gc --prune=now`） | ✅ **89 M → 8.7 M**，追踪文件 492 → 136 |
+| D | 未使用依赖 `@google/genai` / `express` / `dotenv` / `@types/express` / `autoprefixer` / `esbuild` | ✅ 移除 141 个包 |
+| E | `metadata.json`、`.env.example`（Google AI Studio 脚手架，代码 0 引用） | ✅ |
+| — | `.cleanup-log.txt`（我自己的临时日志） | ✅ |
+
+**跳过**：`.vite/`（仅 2 K，且被运行中的 dev server 占用，删了立刻重建）、`scripts/`（128 K，多数是现役调参工具）。
+
+**保留的 `outputs/` 5 组**：`home-ref`(7.2M 首页版面) / `red-unify`(2.8M 正红) /
+`reveal-pill`(2.6M 揭示修复) / `detail-ui`(2.6M 详情页) / `card-price`(176K 卡片价格)。
 
 ---
 
-## 还能删的（按「值不值得删」排序）
+## 回滚方式
 
-### A. 验证产出目录 — **79.6 M** ⭐ 最大头
-
-| 体积 | 路径 | 内容 |
-|---|---|---|
-| **59.1 M** | `probe-out/` | 历次 `probe-*.mjs` 的过程调试产物 |
-| **20.5 M** | `outputs/` | 历次 `shot-*.mjs` 的对照图 |
-
-`probe-out/` 内部（前几名）：
-
-| 体积 | 子目录 |
-|---|---|
-| 29 M | `ten-draw/` —— 十连抽逐帧 100+ 张 png，纯调试用 |
-| 4.9 M | `gacha-size/` |
-| 2.5 M | `single-draw/` |
-| 2.2 M | `card-fit/` |
-| 2.0 M | `persp/` |
-| 1.9 M | `app/`（逐 Tab 截图） |
-| 1.8 M | `me-ref/` |
-| 1.7 M | `video/` |
-
-`outputs/` 内部：
-
-| 体积 | 子目录 | 建议 |
-|---|---|---|
-| 7.2 M | `home-ref/` | 首页版面（含带标尺参考图，**体积大但有用**） |
-| 2.8 M | `red-unify/` | 正红改造 |
-| 2.6 M | `reveal-pill/` | 抽卡揭示修复 |
-| 2.6 M | `detail-ui/` | 详情页改造 |
-| 1.5 M | `gacha-card-size/` | 抽卡卡片尺寸 |
-| 1.2 M | `ten-draw-anchor/` | 十连锚点 |
-| 其余 | `loading/`、`detail-swap/`、`loader-palette/`、`menu-hierarchy/`、`card-price/`、`gacha-header/`、`mode-toggle/` + 3 个散 png | 旧任务，可整删 |
-
-**建议**：`probe-out/` 整个删（纯过程产物，重跑脚本可再生）；
-`outputs/` 只留最近 4 组（`home-ref` / `red-unify` / `reveal-pill` / `detail-ui`），其余删。
-
-### B. 跨目录重复文件 — **约 3.0 M**
-
-| 体积 | 重复组 |
-|---|---|
-| 538 K × 3 | `outputs/gacha-card-size/menu-after.png` = `probe-out/menu-name/menu-mid.png` = `menu-top.png` |
-| 389 K × 2 | `outputs/detail-swap/detail-after.png` = `probe-out/detail-swap/detail-after.png` |
-| 370 K × 2 | `outputs/red-unify/04-detail.png` = `05-detail.png` |
-| 365 K × 2 | `outputs/detail-ui/02-detail-large.png` = `03-detail-bottom.png` |
-| 276 K × 2 | `outputs/sticky-header-after.png` = `probe-out/sticky-header/a-clip.png` |
-| 142 K × 2 | `outputs/loading/timeline.png` = `probe-out/loading-video/timeline.png` |
-| 119 K × 2 | `outputs/gacha-card-size/cards-zoom.png` = `probe-out/card-fit/zoom-price.png` |
-| 96 K × 2 | `outputs/loader-palette/loader.png` = `outputs/loading/mobile-650.png` |
-| 68 K × 2 | `outputs/loading/brand-loader.mp4` = `probe-out/loading-video/loading.mp4` |
-| 20 K × 4<br>21 K × 4 | `probe-out/calorie-chips/` 8 张候选图（两组各 4 张内容相同） |
-
-**建议**：A 档删掉后，这一档大部分自然消失。
-
-### C. `.git` — **89 M** ⚠️ 慎重
-
-上一轮我为了安全建的快照，里面 **80 M 是 `probe-out/` + `outputs/` 的图片 blob**
-（`.gitignore` 没排除这两个目录，`git ls-files` 里有 179 + 59 个产出文件）。
-
-**如果你删了 A 档，`.git` 里那 80 M 会变成永远清不掉的死重量**（`git gc` 也没用，blob 还被 commit 引用着）。
-
-处理方式（三选一）：
-1. 把 `probe-out/`、`outputs/` 加进 `.gitignore`，然后**重建仓库**（`rm -rf .git && git init && git add -A && git commit`）→ 新 `.git` 会降到 ~9 M
-2. 保留现状不管（多占 89 M）
-3. 连 `.git` 一起删（**会失去唯一的回滚手段**，不建议）
-
-### D. 未使用的 npm 依赖 — **约 12.4 M**（需重装依赖）
-
-| 包 | node_modules 占用 | 引用处 |
-|---|---|---|
-| `@google/genai` | **12 M** | 0 处（AI Studio 遗留） |
-| `express` | 253 K | 0 处（没有 `server.js`，纯前端） |
-| `dotenv` | 132 K | 0 处 |
-| `autoprefixer` | — | 0 处（Tailwind v4 用 Lightning CSS，不需要它） |
-| `esbuild` | — | 0 处（vite 自带） |
-
-**做法**：从 `package.json` 删掉这几项 → `npm install`（会顺带清掉 node_modules 里的包）。
-⚠️ 删完要跑一次 `npm run build` 确认没坏。
-
-### E. 根目录散件 — **约 3 K**
-
-| 路径 | 说明 |
-|---|---|
-| `.cleanup-log.txt` | 我上一轮删文件用的临时日志，**应该删** |
-| `.vite/` | dev 缓存，删了下次启动慢 1 秒 |
-| `metadata.json` | Google AI Studio 平台元数据，本地运行不需要 |
-| `.env.example` | AI Studio 模板（`GEMINI_API_KEY`），代码里 0 处引用 |
-| `UNUSED-FILES-REPORT.md` | 本报告，你自己决定留不留 |
-
-**保留**：`gacha-ingredients.md`、`README.md`、`package.json`、`tsconfig.json`、`index.html`、`vite.config.ts`、`.gitignore`、`.workbuddy-ai/`
-
-### F. 一次性调查脚本（`scripts/`）— 128 K，**不建议删**
-
-体积可忽略。`scripts/` 里确实有一批一次性的（下划线前缀的 `_analyze_ingredients.py`、
-`_check_ingredients.py`、`_tmp-hold.mjs`，以及 `shot-me-bottom.mjs`、`shot-calorie-chips.mjs`、
-`compare-flame-colors.mjs` 等），但**其中多数在 `MEMORY.md` 里被记作现役工具**
-（如 `sweep-persp.mjs`、`probe-flap.mjs`、`probe-idle.mjs`、`probe-persp.mjs`），
-删了下次调参要重写。收益 0、风险不小，**建议全部保留**。
+1. **回收站**：所有删除都走了回收站，没走 `rm`。
+2. **git 快照**：commit `d90fd31`。
+   ⚠️ 历史被 `--amend` 重写过，所以**只能恢复到"清理后"的状态**；
+   第一、二轮删掉的文件**不能**再靠 `git checkout` 找回，只能从回收站还原。
 
 ---
 
-## 汇总
+## ⚠️ 遗留问题：npm 会把平台原生包裁掉
 
-| 档 | 体积 | 风险 |
-|---|---|---|
-| A 验证产出目录 | 79.6 M | 低（可重跑脚本再生，但生成不了"当时那一版"） |
-| B 重复文件 | 3.0 M | 极低（A 删完自然消失） |
-| C `.git` 重建 | 回收 80 M | 中（需先确认不再需要回滚） |
-| D 未使用依赖 | 12.4 M | 低（需重装 + 回归构建） |
-| E 根目录散件 | ~3 K | 极低 |
-| **合计** | **≈ 175 M** | |
+改完 `package.json` 跑 `npm install` 之后，`npm run build` 会依次崩在：
 
-清完之后项目会从 **402 M → 约 130 M**（含 node_modules）。
+```
+Cannot find module @rollup/rollup-win32-x64-msvc
+Cannot find module lightningcss-win32-x64-msvc
+Cannot find module @tailwindcss/oxide-win32-x64-msvc
+```
+
+这是 npm 的已知 bug（[npm/cli#4828](https://github.com/npm/cli/issues/4828)）：
+**平台专属的 optional 依赖在 `npm install` 时被裁掉**，而 lockfile 里其实有记录。
+
+已用「删掉 node_modules + package-lock.json 后全新 `npm install`」修复
+（旧的那份挪到了 `node_modules.old` / `package-lock.json.old`，确认构建通过后再删）。
+
+**如果你以后自己跑 `npm install` 又遇到这个报错**，两条路：
+1. 补装对应包（版本从 `node_modules/<包>/package.json` 的 `version` 读）：
+   ```bash
+   npm install @rollup/rollup-win32-x64-msvc@<版本> lightningcss-win32-x64-msvc@<版本> @tailwindcss/oxide-win32-x64-msvc@<版本> --no-save
+   ```
+   ⚠️ 必须**一条命令同时装**，分两次装会互相裁掉。
+2. 或者干脆：删 `node_modules` + `package-lock.json`，重新 `npm install`。
+
+---
+
+## 建议保留的东西（别删）
+
+| 路径 | 原因 |
+|---|---|
+| `.workbuddy-ai/` | 项目记忆与工作日志 |
+| `node_modules/` | 运行依赖 |
+| `scripts/` | 现役验证/调参脚本，`MEMORY.md` 里有引用 |
+| `public/ingredients/` | 抽卡食材插画，经 `utils/ingredientArt.ts` 引用 |
+| `gacha-ingredients.md`、`README.md` | 文档 |
+| `UNUSED-FILES-REPORT.md`（本文件） | 清理记录，不需要可删 |

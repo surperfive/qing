@@ -657,7 +657,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => setShowGetTokensModal(true)}
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black text-white font-extrabold text-xs shadow-xs hover:bg-slate-800 transition-colors cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black text-white font-extrabold text-xs shadow-xs hover:bg-slate-800 transition-colors duration-200 ease-out cursor-pointer active:scale-95"
               id="btn-header-tokens"
             >
               <Crown className="w-3 h-3 text-[#C7F665] fill-[#C7F665] shrink-0" />
@@ -668,7 +668,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
 
             <button
               onClick={() => setShowChecklistModal(true)}
-              className="w-7 h-7 rounded-full bg-white/80 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 transition-colors cursor-pointer shadow-2xs"
+              className="w-7 h-7 rounded-full bg-white/80 hover:bg-white border border-slate-200/80 flex items-center justify-center text-slate-700 transition-colors duration-200 ease-out cursor-pointer shadow-2xs active:scale-95"
               id="btn-header-info"
               title="食材图鉴与掉率"
             >
@@ -1520,7 +1520,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
           <div className="py-2 px-2 flex items-center justify-center relative z-10 mb-2">
             <label
               onClick={() => setSkipAnimation(!skipAnimation)}
-              className="flex items-center gap-1.5 cursor-pointer text-black hover:opacity-80 select-none text-xs font-black"
+              className="flex items-center gap-1.5 cursor-pointer text-black hover:opacity-80 select-none text-xs font-black active:scale-95 transition-all duration-200 ease-out"
               id="skip-animation-toggle"
             >
               <div
@@ -1561,7 +1561,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     <button
                       key={cat.key}
                       onClick={() => setActiveCategoryFilter(cat.key)}
-                      className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all cursor-pointer whitespace-nowrap leading-none ${
+                      className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all duration-200 ease-out cursor-pointer whitespace-nowrap leading-none active:scale-95 ${
                         isActive
                           ? 'bg-black text-white shadow-xs border-[2px] border-[#C7F665]'
                           : 'text-[#475467] hover:text-black bg-transparent'
@@ -1587,7 +1587,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                       handleSelectAllPantry();
                     }
                   }}
-                  className="relative flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 transition-all text-black font-black text-xs sm:text-sm cursor-pointer border-[2px] border-black shadow-[1px_1px_0_#000]"
+                  className="relative flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#C7F665] hover:bg-[#B7EF4B] active:scale-95 transition-all duration-200 ease-out text-black font-black text-xs sm:text-sm cursor-pointer border-[2px] border-black shadow-[1px_1px_0_#000]"
                   title={selectedIngredients.length === pantry.length ? "取消全选" : "全选全部食材"}
                   id="btn-category-select-all-pill"
                 >
@@ -1695,7 +1695,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                            padding 8px / badge 20px / 菜名 11px 全部变大，把中间留给
                            插画的高度压到只剩 29px，50px 的图直接被 overflow-hidden 裁掉。
                            统一用移动端尺寸后，中间图槽稳定在 ~54px，插画能完整显示。 */
-                        className={`aspect-square w-full rounded-[16px] cursor-pointer relative flex flex-col justify-between p-1.5 select-none border will-change-transform ${
+                        className={`aspect-square w-full rounded-[16px] cursor-pointer relative flex flex-col justify-between p-1.5 select-none border will-change-transform active:scale-[0.98] transition-all duration-200 ease-out ${
                           isSelected
                             /* 选中态：只保留外层青柠环，不要内层黑边。
                                仍保留 1px 透明边框占位，否则与未选中态之间会跳 1px 版。 */
@@ -1839,7 +1839,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     disabled={!isDeliveryThresholdMet}
                     className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-2 font-black text-[13px] sm:text-[14px] tracking-tight transition-all select-none ${
                       isDeliveryThresholdMet
-                        ? 'bg-[#C7F665] hover:bg-[#B7EF4B] text-black cursor-pointer shadow-sm hover:shadow-md active:scale-95'
+                        ? 'bg-[#C7F665] hover:bg-[#B7EF4B] text-black cursor-pointer shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out'
                         : 'bg-[#94a3b8] text-white cursor-not-allowed opacity-95 shadow-xs'
                     }`}
                     id="btn-pantry-delivery-threshold"
@@ -1905,7 +1905,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                 </div>
                 <button
                   onClick={() => setShowChecklistModal(false)}
-                  className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 cursor-pointer"
+                  className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 cursor-pointer active:scale-95 transition-all duration-200 ease-out"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -1957,7 +1957,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
 
               <button
                 onClick={() => setShowChecklistModal(false)}
-                className="w-full mt-3 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm cursor-pointer"
+                className="w-full mt-3 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs sm:text-sm cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 我知道了
               </button>
@@ -2008,7 +2008,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     className={`px-3 py-1 rounded-full font-extrabold text-xs transition-all shadow-2xs ${
                       hasCheckedInToday
                         ? 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300/60'
-                        : 'bg-gradient-to-r from-[#54801A] to-[#54801A] text-white hover:brightness-105 cursor-pointer'
+                        : 'bg-gradient-to-r from-[#54801A] to-[#54801A] text-white hover:brightness-105 cursor-pointer active:scale-95 transition-all duration-200 ease-out'
                     }`}
                   >
                     {hasCheckedInToday ? '已签到' : '领 1 币'}
@@ -2026,7 +2026,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                       onShowToast('🎉 分享成功！已获得 +1 抽卡币');
                       setShowGetTokensModal(false);
                     }}
-                    className="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs cursor-pointer"
+                    className="px-3 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
                   >
                     去分享
                   </button>
@@ -2035,7 +2035,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
 
               <button
                 onClick={() => setShowGetTokensModal(false)}
-                className="w-full py-2 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-bold text-xs cursor-pointer"
+                className="w-full py-2 rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-700 font-bold text-xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 关闭
               </button>
@@ -2056,7 +2056,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
             >
               <button
                 onClick={() => setShowDeliverySuccessModal(false)}
-                className="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                className="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-600 transition-colors duration-200 ease-out cursor-pointer active:scale-95"
                 id="btn-close-delivery-modal"
                 title="关闭"
               >
@@ -2076,7 +2076,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   onNavigate('orders');
                   onShowToast('🚚 免单配送订单已生成！正在极速配送中');
                 }}
-                className="w-full py-2.5 rounded-full bg-gradient-to-r from-[#54801A] to-[#54801A] text-white font-extrabold text-xs sm:text-sm shadow-xs cursor-pointer"
+                className="w-full py-2.5 rounded-full bg-gradient-to-r from-[#54801A] to-[#54801A] text-white font-extrabold text-xs sm:text-sm shadow-xs cursor-pointer active:scale-95 transition-all duration-200 ease-out"
               >
                 查看订单
               </button>

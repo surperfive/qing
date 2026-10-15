@@ -44,7 +44,7 @@ export const StoreModal: React.FC<StoreModalProps> = ({
                   onSelectStore(store);
                   onClose();
                 }}
-                className={`cursor-pointer p-3.5 rounded-xl border transition-all ${
+                className={`cursor-pointer p-3.5 rounded-xl border transition-all duration-200 ease-out active:scale-[0.98] ${
                   isSelected
                     ? 'border-slate-900 bg-slate-900 text-white shadow-xs'
                     : 'border-slate-200 bg-white hover:border-slate-300'

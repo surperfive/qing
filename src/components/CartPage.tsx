@@ -56,7 +56,7 @@ export const CartPage: React.FC<CartPageProps> = ({
         </p>
         <button
           onClick={() => onNavigate('menu')}
-          className="mt-6 px-6 py-2.5 rounded-lg bg-slate-900 text-[#C7F665] font-extrabold text-sm shadow-md hover:bg-black active:scale-95 transition-all border border-[#C7F665]/30"
+          className="mt-6 px-6 py-2.5 rounded-lg bg-slate-900 text-[#C7F665] font-extrabold text-sm shadow-md hover:bg-black active:scale-95 transition-all duration-200 ease-out border border-[#C7F665]/30"
         >
           立即去选餐
         </button>
@@ -121,7 +121,7 @@ export const CartPage: React.FC<CartPageProps> = ({
           >
             <div
               onClick={() => onSelectDish && onSelectDish(dish)}
-              className="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0 cursor-pointer hover:opacity-90 active:scale-95 transition-all"
+              className="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0 cursor-pointer hover:opacity-90 active:scale-95 transition-all duration-200 ease-out"
               title="查看商品详情"
             >
               <DishImage
@@ -152,7 +152,7 @@ export const CartPage: React.FC<CartPageProps> = ({
               <button
                 type="button"
                 onClick={() => onRemoveFromCart(dish)}
-                className="w-6.5 h-6.5 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95 flex items-center justify-center transition-transform"
+                className="w-6.5 h-6.5 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95 flex items-center justify-center transition-transform duration-200 ease-out"
               >
                 <Minus className="w-3.5 h-3.5" />
               </button>
@@ -162,7 +162,7 @@ export const CartPage: React.FC<CartPageProps> = ({
               <button
                 type="button"
                 onClick={() => onAddToCart(dish)}
-                className="w-6.5 h-6.5 rounded-md bg-slate-900 text-[#C7F665] hover:bg-black active:scale-95 flex items-center justify-center shadow-2xs transition-transform border border-[#C7F665]/30 font-bold"
+                className="w-6.5 h-6.5 rounded-md bg-slate-900 text-[#C7F665] hover:bg-black active:scale-95 flex items-center justify-center shadow-2xs transition-transform duration-200 ease-out border border-[#C7F665]/30 font-bold"
               >
                 <Plus className="w-3.5 h-3.5" />
               </button>
@@ -243,7 +243,7 @@ export const CartPage: React.FC<CartPageProps> = ({
           </div>
           <button
             onClick={onOpenCheckout}
-            className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-[#C7F665] hover:bg-[#B7EF4B] text-slate-900 font-black text-xs sm:text-sm shadow-md active:scale-95 transition-all"
+            className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-[#C7F665] hover:bg-[#B7EF4B] text-slate-900 font-black text-xs sm:text-sm shadow-md active:scale-95 transition-all duration-200 ease-out"
           >
             <span>去结算</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

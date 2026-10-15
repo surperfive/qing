@@ -23,7 +23,7 @@ const freezeRaf = async () => {
 };
 
 const shot = async (name, prepare) => {
-  await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE, { waitUntil: 'commit' });
   // 跳过加载屏
   await page.waitForTimeout(600);
   await page.evaluate(() => {

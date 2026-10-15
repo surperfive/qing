@@ -217,3 +217,28 @@ React 19 + TS + Vite 6 + Tailwind v4 + motion/react v12。无路由库，页面�
 （不需要 Add-Type，PS 5.1 自带）。
 它会**删成功后抛一个虚假异常「无法找到指定文件」**，别被误导 ——
 验证文件真进了回收站的办法：写个 50M 文件测 `df` 可用空间，删除后空间**没被释放**即证明进了回收站。
+
+## 按压态与选中态规范（2026-10-15 全站统一）
+
+**按压缩放全站只有两档**，别引入第三种：
+
+| 元素类型 | 写法 |
+|---|---|
+| 按钮 / 胶囊 / 图标 / 列表行 / 文字链 | `active:scale-95` |
+| 卡片 / 面板 / 整块可点区域 | `active:scale-[0.98]` |
+
+过渡一律 `transition-{all|colors|transform} duration-200 ease-out`。
+判据脚本 `scripts/scan-feedback.mjs`（找「有 cursor-pointer 但整行无 active:」的）。
+
+⚠️ **`duration-300` 是内容动画专用**（轮播 / 餐盖 / 吉祥物），别把它当成按压反馈改短 ——
+按压态与 300ms **零重叠**，改错地方会毁掉抽卡动画节奏。
+
+⚠️ **下面 7 处故意没有按压态**，别当漏改补上：
+`FloatingCart:109`(黑遮罩) / `CartPage:136`+`FloatingCart:139/185/201/215`(group 容器，子元素已有 hover)
+/ `BannerSlider:34`(轮播 slide) / `GachaPage:812`(餐盖主视觉) / `MenuPage:309`(搜索输入框)
+/ `GiftMascotAnimation:33`+`MePage:193`(条件类名是 flag 不是元素)
+
+**选中态视觉语言**（`ProductDetailPage` / `GachaPage` 的规格、加料、食材卡）：
+选中副标题用 `#54801A`（`--lime-700`，白底 4.7:1）+ `font-bold`；
+未选中 `text-slate-400`。**不是品牌主色 `#C7F665`**（对白仅 1.25:1）。
+校验图 `outputs/detail-subtitle/`，脚本 `scripts/shot-detail-subtitle.mjs`。
