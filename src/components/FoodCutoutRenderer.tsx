@@ -344,10 +344,10 @@ export const FoodCutoutRenderer: React.FC<FoodCutoutRendererProps> = ({
           </g>
 
           {/* Black Peppercorn Specks on Beef */}
-          <circle cx="102" cy="72" r="1.2" fill="#000000" />
-          <circle cx="108" cy="70" r="1.2" fill="#000000" />
-          <circle cx="120" cy="80" r="1.2" fill="#000000" />
-          <circle cx="128" cy="78" r="1.2" fill="#000000" />
+          <circle cx="102" cy="72" r="1.2" fill="#000" />
+          <circle cx="108" cy="70" r="1.2" fill="#000" />
+          <circle cx="120" cy="80" r="1.2" fill="#000" />
+          <circle cx="128" cy="78" r="1.2" fill="#000" />
 
           {/* Cherry Tomato Half */}
           <circle cx="112" cy="90" r="9" fill="#EF4444" stroke="#0D1F2D" strokeWidth="2" />

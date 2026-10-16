@@ -242,3 +242,32 @@ React 19 + TS + Vite 6 + Tailwind v4 + motion/react v12。无路由库，页面�
 选中副标题用 `#54801A`（`--lime-700`，白底 4.7:1）+ `font-bold`；
 未选中 `text-slate-400`。**不是品牌主色 `#C7F665`**（对白仅 1.25:1）。
 校验图 `outputs/detail-subtitle/`，脚本 `scripts/shot-detail-subtitle.mjs`。
+
+## 共享原语（2026-10-15 抽取，改动前先读）
+
+用户要求「规范整体文件，把类似的元素统一化」。已抽出两个共享物，**不要再复制粘贴**：
+
+| 文件 | 导出 | 用途 |
+|---|---|---|
+| `src/components/CheckBadge.tsx` | `CheckBadge` | 圆形勾选徽章（选中=青柠底+黑对勾，未选中=白底+灰点）。规格/加料/食材卡共用 |
+| 同上 | `CheckIcon` | 裸对勾 SVG，尺寸颜色由 className 定（如「全选」胶囊里那个） |
+| `src/tokens.ts` | `OPTION_CARD_SELECTED` | 选择卡·选中：`bg-white border-transparent ring-2 ring-[#C7F665] shadow-xs` |
+| 同上 | `OPTION_CARD_UNSELECTED` | 选择卡·未选中：`bg-[#f7f9fb] border-slate-200/90 hover:bg-white hover:border-slate-300 shadow-2xs` |
+
+**tokens.ts 只放卡片外观（chrome）**，文字色由调用方自己拼 —— 因为不是每处都要
+（规格卡要 `text-black`，加料行不要）。嵌套模板字符串是标准写法：
+`? \`${OPTION_CARD_SELECTED} text-black\` : \`${OPTION_CARD_UNSELECTED} text-slate-600\``
+
+**顺手统一掉的两处不一致**：未选小圆点原来是 `bg-slate-200`（抽卡页）/ `bg-slate-300`（详情页）
+两种，已统一为 **300**。
+
+重构脚本 `scripts/refactor-checkbadge.mjs`、`scripts/refactor-optioncard.mjs`。
+**未选小圆点当前只有一个来源了，要改去 `CheckBadge.tsx`，别在页面里改。**
+
+### ⚠️ 那个重构脚本翻过两次车（改脚本前先读）
+1. `end` 位置**必须逐段累加各 `match.index`**（`svgM.index`、`dot.index` 都算）。
+   凭加法猜偏移，漏一个就在文件里留半截残骸（`<CheckBadge ... />full bg-slate-300" />`）。
+2. 正则要能吃下三种既有差异：容器是 `span` 还是 `div`、类名里 `shrink-0` 有无、
+   `<svg>` 属性是单行还是每个属性一行（抽卡页是折行的，得用 `[\s\S]*?`）。
+3. **每次跑完必须 grep 一遍残骸**：`grep -n 'CheckBadge selected' src/components/*.tsx | grep -v '/>$'`
+   —— 行尾不是 `/>` 就是没吃干净。

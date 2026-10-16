@@ -44,6 +44,35 @@
     --pink-500: #DB2777;  /* hover / 按下 */
     --pink-700: #BE185D;  /* 深强调 */
     --pink-900: #831843;  /* 深粉墨 */
+
+    /* ============================================================
+       用色规范（2026-10-15 全项目配色统一后定稿）
+       ============================================================ */
+
+    /* ① 纯黑一律写 #000（或 Tailwind 的 bg-/text-/border-black）。
+          不要再出现 #000000 / #0A0A0A 这些变体 —— 已统一。
+          抽卡页手绘 SVG 的黑也是 #000，理由见 ProductDetailPage.tsx 的注释。 */
+
+    /* ② --brand-black 只在「加载屏」用（值是深灰蓝 #111827，不是纯黑）。
+          它和 ① 的纯黑是两套东西，别混用；加载屏是绿黑配色的整屏特例。 */
+
+    /* ③ 不参与配色统一的自带配色（动了就毁观感）：
+            · 插画 / 3D：FoodCloche3D、GiftMascotAnimation、FoodCutoutRenderer、
+                          HandshakeStitchIcon、CloudSkyBackground、utils/ingredientBackdrops
+            · 抽卡光效：GachaBurstReveal 的 gb-flow-* / gb-drift-*（青色系）
+            这些文件里的 hex 数量最大，但都是素材固有配色，不要"顺手统一"。 */
+
+    /* ④ 稀有度徽章配色（SSR 金 / SR 紫 / R 青柠），唯一权威来源是
+          GachaBurstReveal.tsx 的 RARITY_STYLE：
+              SSR #ffb400 · SR #b388ff · R #C7F665（皆 text-black）
+          GachaPage.tsx 的食材卡徽章、DROP_RATES 都必须与它一致。 */
+
+    /* ⑤ 菜品图加载失败时的分类兜底色（DishImage.tsx）是**分类语义色**，
+          刻意四色区分（salad 青柠 / drink 蓝 / snack 粉 / bowl 琥珀），
+          不属于品牌色板 —— 改任何一个都会和另一类撞车。 */
+
+    /* ⑥ 新增 UI 颜色时先想清楚：是①~⑤里的既有角色，还是真需要新色？
+          如果是后者，加色阶变量而不是手写 hex。 */
   }
 
   body {

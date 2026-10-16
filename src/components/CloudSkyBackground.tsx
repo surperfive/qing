@@ -68,7 +68,7 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
               cy="10"
               rx="2.6"
               ry="3.6"
-              fill="#000000"
+              fill="#000"
               transform="rotate(6 9 10)"
             />
             {/* Right Eye: tilted oval pill */}
@@ -77,13 +77,13 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
               cy="8.5"
               rx="2.6"
               ry="3.6"
-              fill="#000000"
+              fill="#000"
               transform="rotate(10 21 8.5)"
             />
             {/* Smile Mouth: thick curved grin */}
             <path
               d="M 6.5 17.5 C 9.5 24.5, 20.5 24.5, 24.5 16.5"
-              stroke="#000000"
+              stroke="#000"
               strokeWidth="3.4"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -91,7 +91,7 @@ export const CloudSkyBackground: React.FC<CloudSkyBackgroundProps> = ({
             {/* Right dimple / corner mark of smile */}
             <path
               d="M 23 15 C 24.8 16.2, 26 18, 26.5 19.5"
-              stroke="#000000"
+              stroke="#000"
               strokeWidth="2.8"
               strokeLinecap="round"
             />

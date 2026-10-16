@@ -41,9 +41,13 @@ const DAILY_TASKS = [
 ];
 
 // Drop Rate Specifications
+// ⚠️ 2026-10-15 配色统一：这里原先写的是 Tailwind 的 amber-400/yellow-500 和
+//    purple-500/indigo-500，与实际渲染的稀有度徽章（SSR #ffb400 / SR #b388ff / R #C7F665，
+//    见 GachaBurstReveal.tsx 的 RARITY_STYLE）**不是同一套色**。
+//    本表页面未渲染（见文件末尾说明），但留着会误导后人，已改成与徽章同一套 hex。
 const DROP_RATES = [
-  { rarity: 'SSR', title: '深海优质蛋白/牛排', rate: '15%', color: 'from-amber-400 to-yellow-500', border: 'border-amber-300', bg: 'bg-amber-50', text: 'text-amber-800' },
-  { rarity: 'SR', title: '牛油果/藜麦/海虾', rate: '35%', color: 'from-purple-500 to-indigo-500', border: 'border-purple-300', bg: 'bg-purple-50', text: 'text-purple-800' },
+  { rarity: 'SSR', title: '深海优质蛋白/牛排', rate: '15%', color: 'from-[#ffb400] to-[#ffb400]', border: 'border-[#ffb400]', bg: 'bg-[#ffb400]/15', text: 'text-black' },
+  { rarity: 'SR', title: '牛油果/藜麦/海虾', rate: '35%', color: 'from-[#b388ff] to-[#b388ff]', border: 'border-[#b388ff]', bg: 'bg-[#b388ff]/15', text: 'text-black' },
   { rarity: 'R', title: '鲜蔬配料/低卡主基底', rate: '50%', color: 'from-[#C7F665] to-[#C7F665]', border: 'border-[#C7F665]', bg: 'bg-[#F2FCE0]', text: 'text-[#26430B]' },
 ];
 
@@ -739,7 +743,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     cy="10"
                     rx="2.6"
                     ry="3.6"
-                    fill="#000000"
+                    fill="#000"
                     transform="rotate(6 9 10)"
                   />
                   <ellipse
@@ -747,19 +751,19 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     cy="8.5"
                     rx="2.6"
                     ry="3.6"
-                    fill="#000000"
+                    fill="#000"
                     transform="rotate(10 21 8.5)"
                   />
                   <path
                     d="M 6.5 17.5 C 9.5 24.5, 20.5 24.5, 24.5 16.5"
-                    stroke="#000000"
+                    stroke="#000"
                     strokeWidth="3.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                   <path
                     d="M 23 15 C 24.8 16.2, 26 18, 26.5 19.5"
-                    stroke="#000000"
+                    stroke="#000"
                     strokeWidth="2.8"
                     strokeLinecap="round"
                   />
@@ -846,11 +850,11 @@ export const GachaPage: React.FC<GachaPageProps> = ({
 
               <defs>
                 <style>{`
-                  .t { font-family: "PingFang SC","HarmonyOS Sans SC","Noto Sans SC","Source Han Sans SC","Microsoft YaHei","Heiti SC","WenQuanYi Micro Hei",system-ui,sans-serif; fill: #0A0A0A; }
+                  .t { font-family: "PingFang SC","HarmonyOS Sans SC","Noto Sans SC","Source Han Sans SC","Microsoft YaHei","Heiti SC","WenQuanYi Micro Hei",system-ui,sans-serif; fill: #000; }
                   .t-h { font-weight: 900; }
                   .t-w { fill: #FFFFFF; }
                   .t-c { text-anchor: middle; }
-                  .ic { fill: none; stroke: #0A0A0A; stroke-linecap: round; stroke-linejoin: round; }
+                  .ic { fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; }
 
                   /* ---------- 按钮组：呼吸感浮动（v4 重做，取代 v2/v3 的正弦晃动） ----------
 
@@ -1215,7 +1219,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                 </clipPath>
                 {/* 按钮右下投影 */}
                 <filter id="f-btn-shadow" x="-14%" y="-14%" width="128%" height="136%">
-                  <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#000000" floodOpacity="0.18" />
+                  <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#000" floodOpacity="0.18" />
                 </filter>
                 {/* 胶囊皇冠（细高，实测 23×21） */}
                 <g id="ic-crown-lime">
@@ -1297,7 +1301,7 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                       width="392"
                       height="175"
                       rx="68"
-                      fill="#0A0A0A"
+                      fill="#000"
                       style={{
                         opacity: pressedButton === 'single' ? 0.95 : 1,
                         transition: 'opacity 0.08s ease-out'
@@ -1339,16 +1343,16 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                            改为与胶囊中心对齐：70 → 97（+27），标题中心 167 = 胶囊中心 167，
                            左右边距收敛到 71.5 / 54，标题与胶囊构成稳定的居中文本列。
                            两者仍承担不同角色，不要改回左对齐，也不要再向右压。 */}
-                      <text id="txt-single" className="t t-h" x="97" y="133" stroke="#0A0A0A" strokeWidth="1.6" strokeLinejoin="round"
+                      <text id="txt-single" className="t t-h" x="97" y="133" stroke="#000" strokeWidth="1.6" strokeLinejoin="round"
                             fontSize="58" letterSpacing="24">单抽</text>
 
                       {/* 右侧圆形箭头按钮（实测圆心 332.5,126.5 半径 42） */}
-                      <circle id="single-arrow-circle" cx="333" cy="136.5" r="42" fill="#0A0A0A" />
+                      <circle id="single-arrow-circle" cx="333" cy="136.5" r="42" fill="#000" />
                       <path id="single-arrow" d="M313,136.5 H351 M335,122.5 L351,136.5 L335,150.5"
                             fill="none" stroke="#C7F665" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
 
                       {/* 1 抽卡币 胶囊（实测 70..264 × 151..191） */}
-                      <rect id="single-coin-pill" x="70" y="151" width="194" height="40" rx="20" fill="#0A0A0A" />
+                      <rect id="single-coin-pill" x="70" y="151" width="194" height="40" rx="20" fill="#000" />
                       <g id="single-coin-crown" transform="translate(112,169.5)">
                         <use href="#ic-crown-pale" />
                       </g>
@@ -1373,12 +1377,12 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                 >
                   <path id="btn-multi-shadow"
                         d="M494,57 H740 A60,60 0 0 1 800,117 V157.1 A72,72 0 0 1 728,229.1 L506,220.2 A76,76 0 0 1 430,144.2 V121 A64,64 0 0 1 494,57 Z"
-                        fill="#0A0A0A" opacity="0.16" />
+                        fill="#000" opacity="0.16" />
                   {/* 底座（黑边）：与单抽同一结构（黑底座 + 彩色面），
                       黑边左右上约 6px、下方约 17.5px（厚底），与单抽对称 */}
                   <path id="btn-multi-base"
                         d="M487,50 H733 A60,60 0 0 1 793,110 V150.1 A72,72 0 0 1 721,222.1 L499,213.2 A76,76 0 0 1 423,137.2 V114 A64,64 0 0 1 487,50 Z"
-                        fill="#0A0A0A" />
+                        fill="#000" />
 
                   {/* Button Cap: Dark Face, Title, Arrow & Pill physically presses DOWN into the neon lime base */}
                   <g
@@ -1432,13 +1436,13 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                     </g>
 
                     {/* 主标题：十连抽（黑字，蓝绿填充底上可读；字体与单抽完全一致） */}
-                    <text id="txt-multi" className="t t-h" x="466" y="133" stroke="#0A0A0A" strokeWidth="1.6" strokeLinejoin="round"
+                    <text id="txt-multi" className="t t-h" x="466" y="133" stroke="#000" strokeWidth="1.6" strokeLinejoin="round"
                           fontSize="58" textLength="175" lengthAdjust="spacingAndGlyphs">十连抽</text>
 
                     {/* 右侧圆形箭头按钮（黑圆 + 蓝绿箭头，与单抽的黑圆+柠檬绿箭头对称）。
                          箭头色随 v4 主色带同步提彩：#5EEAD4 -> #50F8DD。
                          黑底上更艳反而更清晰（对比度 13.38 -> 14.91）。 */}
-                    <circle id="multi-arrow-circle" cx="716" cy="133" r="39" fill="#0A0A0A" />
+                    <circle id="multi-arrow-circle" cx="716" cy="133" r="39" fill="#000" />
                     <path id="multi-arrow" d="M697,133 H735 M718,119 L735,133 L718,147"
                           fill="none" stroke="#50F8DD" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
 

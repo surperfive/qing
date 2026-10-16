@@ -827,7 +827,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       <div className="w-5 h-5 rounded-lg bg-black text-[#C7F665] flex items-center justify-center">
                         <ReceiptText className="w-3 h-3 stroke-[2.5]" />
                       </div>
-                      <span className="text-xs font-black text-slate-850 tracking-tight">价格构成分析</span>
+                      <span className="text-xs font-black text-slate-900 tracking-tight">价格构成分析</span>
                       <span className="text-[10px] text-black font-black bg-[#C7F665] px-1.5 py-0.2 rounded-full border border-black/15">
                         省 ¥{((unitOriginalPrice - unitDealPrice) * quantity).toFixed(1)}
                       </span>
