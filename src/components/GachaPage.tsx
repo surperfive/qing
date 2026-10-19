@@ -1147,10 +1147,91 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                   }
                   .gb-sheen-sweep { animation: gb-sheen-sweep 3.2s cubic-bezier(0.42, 0, 0.5, 1) infinite; }
 
+                  /* ============================================================
+                     单抽 · 黄绿流动系统（与十连同构，2026-10-18 用户要求）
+                     ------------------------------------------------------------
+                     结构照搬十连抽的三层 + 扫光 + 色相环流，只换配色体系：
+                       底层 g-single-deep  饱和涌流（3 色标）
+                       中层 g-single-ring  主色带（6 色标，黄 ↔ 绿往复）
+                       顶层 g-single-lite  近白黄绿高光
+                     色相锚在品牌青柠 #C7F665（H≈82°）两侧：
+                       黄侧 #F2FB6A / #E4FA8E（H≈66~72°）
+                       绿侧 #8FE01F / #8BE015（H≈85~88°）
+                     全部保持高明度（L 50~78）+ 高彩度（S 84~96）：
+                     黄绿本身明度高，黑字对比度最坏仍 > 9（AA 阈值 4.5），
+                     所以这里**不需要**像十连那样限制 hue 只能往负方向 ——
+                     黄↔绿双向都安全，振幅可用 -10° ~ +14° 做「黄绿呼吸」。
+                     ⚠️ 三层顺序不可换：deep 垫彩度 → ring 主体 → lite 高光。
+                     ⚠️ 中层不加 opacity（底层本身鲜亮，加透明度会泛白冲淡）。
+                     ============================================================ */
+                  @keyframes gs-flow-deep-1 {
+                    0%,100% { stop-color: #A6F01C; stop-offset: 0; }
+                    50%     { stop-color: #D4FA3C; stop-offset: 0.34; }
+                  }
+                  @keyframes gs-flow-deep-2 {
+                    0%,100% { stop-color: #D4FA3C; stop-offset: 0.42; }
+                    50%     { stop-color: #8BE015; stop-offset: 0.58; }
+                  }
+                  @keyframes gs-flow-deep-3 {
+                    0%,100% { stop-color: #8BE015; stop-offset: 0.78; }
+                    50%     { stop-color: #A6F01C; stop-offset: 1; }
+                  }
+                  #g-single-deep stop:nth-of-type(1) { animation: gs-flow-deep-1 5.5s ease-in-out infinite; }
+                  #g-single-deep stop:nth-of-type(2) { animation: gs-flow-deep-2 7s   ease-in-out infinite; }
+                  #g-single-deep stop:nth-of-type(3) { animation: gs-flow-deep-3 8.5s ease-in-out infinite; }
+
+                  @keyframes gs-drift-1 {
+                    0%,100% { stop-color: #B7F03A; stop-offset: 0; }
+                    33%     { stop-color: #F2FB6A; stop-offset: 0.22; }
+                    66%     { stop-color: #A9EE45; stop-offset: 0.06; }
+                  }
+                  @keyframes gs-drift-2 {
+                    0%,100% { stop-color: #A9EE45; stop-offset: 0.26; }
+                    33%     { stop-color: #E4FA8E; stop-offset: 0.50; }
+                    66%     { stop-color: #8FE01F; stop-offset: 0.18; }
+                  }
+                  @keyframes gs-drift-3 {
+                    0%,100% { stop-color: #8FE01F; stop-offset: 0.52; }
+                    33%     { stop-color: #B7F03A; stop-offset: 0.30; }
+                    66%     { stop-color: #C7F665; stop-offset: 0.62; }
+                  }
+                  @keyframes gs-drift-4 {
+                    0%,100% { stop-color: #C7F665; stop-offset: 0.74; }
+                    33%     { stop-color: #A9EE45; stop-offset: 0.50; }
+                    66%     { stop-color: #F2FB6A; stop-offset: 0.88; }
+                  }
+                  @keyframes gs-drift-5 {
+                    0%,100% { stop-color: #F2FB6A; stop-offset: 0.92; }
+                    33%     { stop-color: #E4FA8E; stop-opacity: 0.9; stop-offset: 0.74; }
+                    66%     { stop-color: #8FE01F; stop-opacity: 1;  stop-offset: 0.98; }
+                  }
+                  @keyframes gs-drift-6 {
+                    0%,100% { stop-color: #E4FA8E; stop-offset: 1; }
+                    33%     { stop-color: #F2FB6A; stop-opacity: 0.94; stop-offset: 0.84; }
+                    66%     { stop-color: #C7F665; stop-opacity: 1;    stop-offset: 1; }
+                  }
+                  #g-single-ring stop:nth-of-type(1) { animation: gs-drift-1 5.5s ease-in-out infinite; }
+                  #g-single-ring stop:nth-of-type(2) { animation: gs-drift-2 7s   ease-in-out infinite; }
+                  #g-single-ring stop:nth-of-type(3) { animation: gs-drift-3 8.5s ease-in-out infinite; }
+                  #g-single-ring stop:nth-of-type(4) { animation: gs-drift-4 5.5s ease-in-out infinite; }
+                  #g-single-ring stop:nth-of-type(5) { animation: gs-drift-5 7s   ease-in-out infinite; }
+                  #g-single-ring stop:nth-of-type(6) { animation: gs-drift-6 8.5s ease-in-out infinite; }
+
+                  /* 黄绿之间的色相环流：负向偏黄、正向偏绿，双向都安全 */
+                  @keyframes gs-hue-cycle {
+                    0%   { filter: hue-rotate(-10deg) saturate(1); }
+                    50%  { filter: hue-rotate(14deg)  saturate(1.1); }
+                    100% { filter: hue-rotate(-10deg) saturate(1); }
+                  }
+                  #btn-single .gs-breathe { animation: gs-hue-cycle 9s ease-in-out infinite; }
+
                   @media (prefers-reduced-motion: reduce) {
                     #g-multi-deep stop,
                     #g-multi-ring stop,
+                    #g-single-deep stop,
+                    #g-single-ring stop,
                     #btn-multi .gb-breathe-target,
+                    #btn-single .gs-breathe,
                     .gb-sheen-sweep,
                     #btn-sway,
                     #badge-discount.gb-badge-live { animation: none; }
@@ -1216,6 +1297,35 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                 {/* 面路径裁剪，供高光层使用（与 btn-multi-face 完全同一条 d） */}
                 <clipPath id="clip-multi-face">
                   <path d="M493,56 H731 A55,55 0 0 1 786,111 V150.1 A65,54.5 0 0 1 721,204.6 L499,195.7 A70,58.5 0 0 1 429,137.2 V120 A64,64 0 0 1 493,56 Z" />
+                </clipPath>
+
+                {/* ---------- 单抽 · 黄绿流动三层（2026-10-18，与十连同构） ----------
+                     中层主色带 6 色标：黄侧 #F2FB6A / #E4FA8E，绿侧 #8FE01F / #8BE015，
+                     锚点仍是品牌青柠 #C7F665。明度 50~78、彩度 84~96 —— 黑字对比度
+                     最坏 > 9，安全。动画由 <style> 的 gs-drift-* 驱动。 */}
+                <linearGradient id="g-single-ring" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0"    stopColor="#B7F03A" />
+                  <stop offset="0.2"  stopColor="#A9EE45" />
+                  <stop offset="0.4"  stopColor="#8FE01F" />
+                  <stop offset="0.62" stopColor="#C7F665" />
+                  <stop offset="0.82" stopColor="#F2FB6A" />
+                  <stop offset="1"    stopColor="#E4FA8E" />
+                </linearGradient>
+                {/* 底层饱和涌流：彩度更高，压在最下面垫出浓度（不直接可读） */}
+                <linearGradient id="g-single-deep" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0"    stopColor="#A6F01C" />
+                  <stop offset="0.45" stopColor="#D4FA3C" />
+                  <stop offset="1"    stopColor="#8BE015" />
+                </linearGradient>
+                {/* 顶部高光：近白黄绿，玻璃反光感（高光保持低彩度，艳了像塑料） */}
+                <linearGradient id="g-single-lite" x1="0" y1="0" x2="0.6" y2="1">
+                  <stop offset="0"    stopColor="#FBFFCF" stopOpacity="0.95" />
+                  <stop offset="0.45" stopColor="#E4FA8E" stopOpacity="0.36" />
+                  <stop offset="1"    stopColor="#C7F665" stopOpacity="0" />
+                </linearGradient>
+                {/* 单抽面裁剪：给扫光用（矩形面，直接复用 rect 参数） */}
+                <clipPath id="clip-single-face">
+                  <rect x="25.5" y="58" width="381" height="150.5" rx="62" />
                 </clipPath>
                 {/* 按钮右下投影 */}
                 <filter id="f-btn-shadow" x="-14%" y="-14%" width="128%" height="136%">
@@ -1320,8 +1430,33 @@ export const GachaPage: React.FC<GachaPageProps> = ({
                       transition: pressedButton === 'single' ? 'transform 0.06s cubic-bezier(0.1, 0.9, 0.2, 1)' : 'transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1)'
                     }}
                   >
-                    {/* 面：比底座内缩 6px（下方 17px），实测纯平色 #C7F665 */}
-                    <rect id="btn-single-face" x="25.5" y="58" width="381" height="150.5" rx="62" fill="#C7F665" />
+                    {/* 面：比底座内缩 6px（下方 17px）。
+                        2026-10-18 由纯平色 #C7F665 改为**黄绿流动三层 + 扫光**，
+                        与十连抽完全同构（deep 垫彩度 → ring 主体 → lite 高光）。
+                        三层用同一个 rect 叠放，顺序不可换。
+                        ⚠️ 外层 #btn-single-face 必须保留：index.css 的 hover 提亮
+                        （filter: brightness(1.04)）挂在它上面。hue 呼吸放在内层
+                        #btn-single-face-flow，两层 filter 分离才不会互相覆盖。 */}
+                    <g id="btn-single-face">
+                      <g id="btn-single-face-flow" className="gs-breathe">
+                        <rect x="25.5" y="58" width="381" height="150.5" rx="62" fill="url(#g-single-deep)" />
+                        <rect x="25.5" y="58" width="381" height="150.5" rx="62" fill="url(#g-single-ring)" />
+                        <rect x="25.5" y="58" width="381" height="150.5" rx="62" fill="url(#g-single-lite)" />
+                      </g>
+                      {/* 扫光：白色斜光带循环扫过面，裁剪在圆角矩形内不溢出黑边。
+                          放在标题下层，掠过文字底部但不遮字形。 */}
+                      <g clipPath="url(#clip-single-face)" pointerEvents="none">
+                        <rect
+                          id="btn-single-sheen"
+                          className="gb-sheen-sweep"
+                          x="20"
+                          y="48"
+                          width="420"
+                          height="170"
+                          fill="url(#g-multi-sheen)"
+                        />
+                      </g>
+                    </g>
 
                     {/* 内容层：反向缩放抵消外层 0.92，使标题 / 箭头 / 胶囊维持原始视觉尺寸。
                          原点取 230.7 而非几何中心，是让箭头圆右侧内缩 = 31px，

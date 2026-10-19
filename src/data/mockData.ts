@@ -83,7 +83,7 @@ export const DISHES: Dish[] = [
     bg: '#FDD3EA',
     color: '#DB2777',
     tags: ['限时立减', '高纤维', '随手轻食'],
-    isPopular: false,
+    isPopular: true,
     isLimit: true,
     maxLimit: 2,
     icon: 'sandwich',

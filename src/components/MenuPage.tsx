@@ -4,6 +4,7 @@ import { Dish, CategoryId, OrderMode, Store, FilterState } from '../types';
 import { CATEGORIES } from '../data/mockData';
 import { CategoryIcon, FlameIcon } from './CategoryIcons';
 import { DishImage } from './DishImage';
+import { DishTag } from './DishTag';
 import { SearchModal } from './SearchModal';
 import { MenuBottomDecor } from './MenuBottomDecor';
 import {
@@ -582,24 +583,19 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                             {dish.subtitle || dish.description}
                           </p>
 
-                          {/* Nutrition & Dietary Badges (single non-wrapping row, unified height and baseline) */}
+                          {/* Nutrition & Dietary Badges —— 2026-10-18 统一为首页人气卡同款
+                              浅青柠全圆胶囊（DishTag），不再是灰底方角徽章 */}
                           <div className="flex items-center gap-1 mt-1 overflow-hidden">
-                            <span className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200/80 text-slate-700 text-[9px] font-bold flex items-center gap-0.5 flex-shrink-0 leading-none">
-                              <Flame className="w-2.5 h-2.5 fill-slate-500 text-slate-500 flex-shrink-0" />
+                            <DishTag>
+                              <Flame className="w-2.5 h-2.5 fill-[#26430B] text-[#26430B] flex-shrink-0" />
                               <span>{dish.kcal} kcal</span>
-                            </span>
+                            </DishTag>
                             {dish.isSugarFree ? (
-                              <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-[9px] font-medium border border-slate-200/80 flex-shrink-0 leading-none">
-                                0蔗糖
-                              </span>
+                              <DishTag>0蔗糖</DishTag>
                             ) : dish.isKeto ? (
-                              <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-[9px] font-medium border border-slate-200/80 flex-shrink-0 leading-none">
-                                生酮
-                              </span>
+                              <DishTag>生酮</DishTag>
                             ) : dish.isVegetarian ? (
-                              <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-[9px] font-medium border border-slate-200/80 flex-shrink-0 leading-none">
-                                素食
-                              </span>
+                              <DishTag>素食</DishTag>
                             ) : null}
                           </div>
                         </div>

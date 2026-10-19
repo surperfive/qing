@@ -170,11 +170,14 @@ export const FoodCloche3D: React.FC<FoodCloche3DProps> = ({
             <stop offset="100%" stopColor="#65a30d" />
           </linearGradient>
 
-          {/* Glowing Dome Contour Rim Highlight Gradient */}
+          {/* Glowing Dome Contour Rim Highlight Gradient
+              2026-10-18：75% 那一档原为 #bef264（≈背景青柠），穹顶右下缘会直接糊进背景；
+              提到 #ecfccb 之后轮廓才整圈都能「抠」出来。这一档不能提到纯白 ——
+              右下方是背光侧，纯白会让穹顶看起来是「平贴的剪纸」而不是有体积的球。 */}
           <linearGradient id="domeContourRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="25%" stopColor="#f7fee7" stopOpacity="0.9" />
-            <stop offset="75%" stopColor="#bef264" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="25%" stopColor="#f7fee7" stopOpacity="0.95" />
+            <stop offset="75%" stopColor="#ecfccb" stopOpacity="0.92" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0.95" />
           </linearGradient>
 
@@ -233,12 +236,17 @@ export const FoodCloche3D: React.FC<FoodCloche3DProps> = ({
         {/* 1. Ground Shadow (Stationary beneath the plate) */}
         <ellipse cx="200" cy="275" rx="160" ry="24" fill="url(#clocheGroundShadow)" />
 
-        {/* 2, 3, 4. THE CLOCHE & SERVING PLATE (Soft, refined outline rim glow) */}
+        {/* 2, 3, 4. THE CLOCHE & SERVING PLATE
+            常态下只留**贴轮廓的一圈光**（rim light），不做大面积 bloom：
+            青柠穹顶压在青柠背景上，色相差本来就小，靠的是轮廓外沿一道亮边把形体「抠」出来。
+            2026-10-18 用户澄清：「外轮廓加一点点光，好从背景分离开来」——
+            所以半径压到 2~5px，只够包住描边，再大就变成背景上的一团雾（试过 14/30px，被打回）。
+            ⚠️ 亮边必须**窄而亮**：模糊半径越大，边界越软，分离感反而越弱。 */}
         <g
           id="cloche-and-plate-group"
           style={{
             filter:
-              'drop-shadow(0 0 2px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 6px rgba(190, 255, 30, 0.22)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.16))',
+              'drop-shadow(0 0 2px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 5px rgba(247, 254, 231, 0.45)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.16))',
           }}
         >
           {/* SERVING PLATE ASSEMBLY (Subtle, elegant outer glow for the plate) */}
@@ -631,7 +639,7 @@ export const FoodCloche3D: React.FC<FoodCloche3DProps> = ({
               "
               fill="url(#domeBodyGrad)"
               stroke="url(#domeContourRimGrad)"
-              strokeWidth="2.2"
+              strokeWidth="2.6"
             />
 
             {/* C. Glossy Specular Light Curve (Left-facing highlight) */}

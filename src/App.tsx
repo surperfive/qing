@@ -15,6 +15,7 @@ import { ProductDetailPage } from './components/ProductDetailPage';
 import { StoreModal } from './components/StoreModal';
 import { LoginModal } from './components/LoginModal';
 import { NutritionReportModal } from './components/NutritionReportModal';
+import { HealthPlanModal } from './components/HealthPlanModal';
 import { Toast } from './components/Toast';
 import { LoadingScreen } from './components/LoadingScreen';
 
@@ -66,17 +67,12 @@ export default function App() {
   const [isStoreModalOpen, setIsStoreModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isNutritionReportOpen, setIsNutritionReportOpen] = useState(false);
+  const [isHealthPlanOpen, setIsHealthPlanOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   // 下层在退场淡出期间也保持 inert，避免点击穿透和键盘进入底部导航。
   const [isLoadingOverlayPresent, setIsLoadingOverlayPresent] = useState(true);
-  const [isLoadingReplay, setIsLoadingReplay] = useState(false);
   const reduceMotion = useReducedMotion();
   const finishLoading = useCallback(() => setIsLoading(false), []);
-  const startLoading = useCallback(() => {
-    setIsLoadingReplay(true);
-    setIsLoadingOverlayPresent(true);
-    setIsLoading(true);
-  }, []);
 
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -268,7 +264,6 @@ export default function App() {
         {isLoading && (
           <motion.div
             key="brand-loading-screen"
-            initial={{ opacity: isLoadingReplay ? 0 : 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: reduceMotion ? 0.12 : 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -416,7 +411,7 @@ export default function App() {
                 onLogout={handleLogout}
                 onShowToast={showToast}
                 onOpenNutritionReport={() => setIsNutritionReportOpen(true)}
-                onTriggerLoading={startLoading}
+                onOpenHealthPlan={() => setIsHealthPlanOpen(true)}
               />
             </div>
           )}
@@ -531,6 +526,13 @@ export default function App() {
       <NutritionReportModal
         isOpen={isNutritionReportOpen}
         onClose={() => setIsNutritionReportOpen(false)}
+      />
+
+      {/* Health Plan Modal */}
+      <HealthPlanModal
+        isOpen={isHealthPlanOpen}
+        onClose={() => setIsHealthPlanOpen(false)}
+        onShowToast={showToast}
       />
       </div>
     </DeviceFrameWrapper>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { UserProfile, Coupon } from '../types';
 import {
   Settings,
@@ -10,18 +11,17 @@ import {
   Building2,
   Gift,
   CreditCard,
-  Heart,
   ChevronDown,
-  ChevronUp,
   Activity,
   MapPin,
-  ShieldCheck,
-  Leaf,
   LogOut,
-  Sparkles,
   Share2,
-  CircleDot
+  CircleDot,
+  Target
 } from 'lucide-react';
+
+/** 与开屏 / 弹窗一致的缓出曲线：起步快、收尾稳，展开收起不“弹” */
+const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 interface MePageProps {
   user: UserProfile;
@@ -33,7 +33,7 @@ interface MePageProps {
   onLogout: () => void;
   onShowToast: (msg: string) => void;
   onOpenNutritionReport: () => void;
-  onTriggerLoading?: () => void;
+  onOpenHealthPlan: () => void;
 }
 
 /* ============================================================================
@@ -90,9 +90,10 @@ export const MePage: React.FC<MePageProps> = ({
   onLogout,
   onShowToast,
   onOpenNutritionReport,
-  onTriggerLoading
+  onOpenHealthPlan
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   /** 资产卡四列数据，按参考图顺序 */
   const assets = [
@@ -137,8 +138,6 @@ export const MePage: React.FC<MePageProps> = ({
   const moreFeatures = [
     { icon: Activity, label: '营养档案', action: onOpenNutritionReport },
     { icon: MapPin, label: '地址管理', toast: '📍 配送地址管理：上海市静安区南京西路1601号越洋广场' },
-    { icon: ShieldCheck, label: '食材溯源', toast: '🛡️ 食材溯源：全店食材均通过有机认证与每日冷链检验' },
-    { icon: Leaf, label: '环保减碳', toast: '🌿 绿色减碳：自带杯/环保餐盒累计减碳 4.8kg' },
     { icon: FileText, label: '隐私协议', toast: '📜 平台隐私政策与服务协议已生效' }
   ];
 
@@ -299,7 +298,39 @@ export const MePage: React.FC<MePageProps> = ({
       <div className="relative z-20 mt-3.5 space-y-3.5 px-3.5">
         {/* ③ 我的订单 + 服务中心 */}
         <div className="grid grid-cols-12 gap-3">
-          {/* 我的订单 —— 青柠底大卡 */}
+          {/* 我的订单 —— 整张卡面图（青柠底 + 大标题 + 副标题 + 黑色「去登录」胶囊 + 3D 剪贴板，全在图里）
+              ⚠️ 尺寸：卡是 `col-span-7` = 217.8 宽；同排「服务中心」内容自然高 132，靠 grid 默认的
+                 `items-stretch` 把这张卡也撑到 132。所以**不能用 `aspect-`**（会和 132 打架），
+                 图片用 `absolute inset-0` + `object-cover` 铺满，让卡高始终跟随服务中心。
+              ⚠️ 素材 1024×572（比例 1.79），卡 217.8×132（1.65）→ cover 按高度铺满，
+                 左右各裁 9.25px（3.9%）：标题左边缘落在距卡左 14.2px（旧版 padding 是 16，几乎一致），
+                 剪贴板右边缘只被裁 0.4%（0.9px），肉眼不可见。**别再改成 object-contain**，
+                 素材青柠 #B4F31C 和品牌 #C7F665 不同，留边会露出两条色差带。
+              ⚠️ 卡 bg 特意写成素材同色 #B4F31C，只为圆角抗锯齿时缝隙不露白/露品牌青柠。
+              ⚠️ 素材是**未登录态**文案（登录后获取订单信息 / 去登录），而页面默认是已登录，
+                 所以这张卡不再随 `user.isLoggedIn` 变文案 —— 静态图的固有限制。
+              ⚠️ 旧 HTML 版（青柠底 + 17px 标题 + 副标题 + 黑胶囊按钮 + 涂鸦 + `.order-art-slot`
+                 餐盒插画位）注释在下方，**没进过 git，别删**；回退就是把这段换回去。 */}
+          <div
+            onClick={() => {
+              if (!user.isLoggedIn) onOpenLogin();
+              else onNavigate('orders');
+            }}
+            className="relative col-span-7 cursor-pointer overflow-hidden rounded-[24px] bg-[#B4F31C] shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.98]"
+          >
+            <img
+              src="/me-order-card.jpg"
+              alt={
+                user.isLoggedIn
+                  ? `我的订单 · ${ordersCount > 0 ? `您有 ${ordersCount} 笔轻食订单` : '暂无进行中订单'}`
+                  : '我的订单 · 登录后获取订单信息'
+              }
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+
+          {/*
+          ── 旧版 HTML 卡面（青柠底 + 标题 + 副标题 + 黑胶囊按钮 + 涂鸦 + 餐盒插画位）──
           <div
             onClick={() => {
               if (!user.isLoggedIn) onOpenLogin();
@@ -336,9 +367,10 @@ export const MePage: React.FC<MePageProps> = ({
               <ChevronRight className="h-3.5 w-3.5 stroke-[3]" />
             </button>
 
-            {/* 餐盒插画位（待补 jpg） */}
             <div className="order-art-slot absolute bottom-1 right-1 h-[76px] w-[104px]" />
           </div>
+          ── 旧版结束 ──
+          */}
 
           {/* 服务中心 —— 白卡 */}
           <div className="relative col-span-5 flex flex-col rounded-[24px] bg-white p-4 shadow-xs">
@@ -384,18 +416,25 @@ export const MePage: React.FC<MePageProps> = ({
         <div className="rounded-[24px] bg-white p-4 shadow-xs">
           <div className="mb-3.5 flex items-center justify-between">
             <h3 className="text-[17px] font-black leading-none text-black">我的功能</h3>
-            <button
+            <motion.button
               type="button"
+              layout
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3, ease: EASE_OUT }}
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-0.5 rounded-full bg-[#C7F665] px-3 py-1.5 text-[11px] font-black text-black transition-all duration-200 ease-out active:scale-95"
+              aria-expanded={isExpanded}
+              aria-controls="me-more-features"
+              className="flex items-center gap-0.5 overflow-hidden rounded-full bg-[#C7F665] px-3 py-1.5 text-[11px] font-black text-black transition-colors duration-200 ease-out"
             >
-              <span>{isExpanded ? '收起' : '展开全部'}</span>
-              {isExpanded ? (
-                <ChevronUp className="h-3.5 w-3.5 stroke-[3]" />
-              ) : (
+              <span className="whitespace-nowrap">{isExpanded ? '收起' : '展开全部'}</span>
+              <motion.span
+                className="flex"
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: EASE_OUT }}
+              >
                 <ChevronDown className="h-3.5 w-3.5 stroke-[3]" />
-              )}
-            </button>
+              </motion.span>
+            </motion.button>
           </div>
 
           {/* 圆形青柠底图标 */}
@@ -417,71 +456,91 @@ export const MePage: React.FC<MePageProps> = ({
               );
             })}
 
-            {/* 口味定制 */}
+            {/* 健康计划（弹窗，组件在 App 层渲染） */}
             <button
               type="button"
-              onClick={onOpenNutritionReport}
+              onClick={onOpenHealthPlan}
               className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
-                <Heart className="h-5 w-5 stroke-[2.2]" />
+                <Target className="h-5 w-5 stroke-[2.2]" />
               </div>
-              <span className="mt-1.5 text-[11px] font-black text-black">口味定制</span>
+              <span className="mt-1.5 text-[11px] font-black text-black">健康计划</span>
             </button>
           </div>
 
-          {/* 展开区 */}
-          {isExpanded && (
-            <div className="mt-3 grid grid-cols-5 gap-1 border-t border-slate-100 pt-3 text-center animate-in fade-in duration-200">
-              {moreFeatures.map((f) => {
-                const Icon = f.icon;
-                return (
-                  <button
-                    key={f.label}
-                    type="button"
-                    onClick={() =>
-                      f.action ? f.action() : onShowToast(f.toast as string)
-                    }
-                    className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
-                      <Icon className="h-5 w-5 stroke-[2.2]" />
-                    </div>
-                    <span className="mt-1.5 text-[11px] font-black text-black">{f.label}</span>
-                  </button>
-                );
-              })}
-
-              {onTriggerLoading && (
-                <button
-                  type="button"
-                  onClick={onTriggerLoading}
-                  className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
-                  title="重新体验开屏加载动画"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
-                    <Sparkles className="h-5 w-5 stroke-[2.2]" />
-                  </div>
-                  <span className="mt-1.5 text-[11px] font-black text-black">开屏动画</span>
-                </button>
-              )}
-            </div>
-          )}
+          {/* 展开区 —— 高度 0→auto 缓动，内部图标错峰上浮，收起时同步回收 */}
+          <AnimatePresence initial={false}>
+            {isExpanded && (
+              <motion.div
+                key="more-features"
+                id="me-more-features"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{
+                  height: { duration: reduceMotion ? 0 : 0.42, ease: EASE_OUT },
+                  opacity: { duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' },
+                }}
+                className="overflow-hidden"
+              >
+                <div className="mt-3 grid grid-cols-5 gap-1 border-t border-slate-100 pt-3 text-center">
+                  {moreFeatures.map((f, index) => {
+                    const Icon = f.icon;
+                    return (
+                      <motion.button
+                        key={f.label}
+                        type="button"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: reduceMotion ? 0 : 0.32,
+                          delay: reduceMotion ? 0 : 0.06 + index * 0.05,
+                          ease: EASE_OUT,
+                        }}
+                        onClick={() =>
+                          f.action ? f.action() : onShowToast(f.toast as string)
+                        }
+                        className="group flex cursor-pointer flex-col items-center py-1 active:scale-95 transition-all duration-200 ease-out"
+                      >
+                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#C7F665] text-black transition-all duration-200 ease-out group-hover:scale-105 group-active:scale-95">
+                          <Icon className="h-5 w-5 stroke-[2.2]" />
+                        </div>
+                        <span className="mt-1.5 text-[11px] font-black text-black">{f.label}</span>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* ⑤ 邀请好友 —— 2026-10-15 整卡换成用户提供的美术图
-            原先是「黑卡 + NEW 青柠斜标签 + 右侧空插画位 invite-art-slot（待补 jpg）」。
-            现在整卡就是一张图（public/invite-card.png，972x472），图里已自带文案和按钮，
-            所以 DOM 里不再手写标题/副标题/按钮，只保留圆角容器和点击 toast。
-            ⚠️ 图片本身 1024x506 但四周有 26/24px 白边，存进 public 前已裁到实际卡片。 */}
+        {/* ⑤ 邀请好友 —— 2026-10-19 换成用户给的「邀请好友 得 9.9元」banner
+            沿革：黑卡 + NEW 斜标签 + `invite-art-slot` 空插画位
+                 → 2026-10-15 `/invite-card.png`（那张画的其实是「我的订单·您有 2 笔」）
+                 → 2026-10-19 `/invite-banner.png`（现在这张，才是真的邀请好友）
+            ⚠️ 为什么是**透明底 PNG** 而不是裁好边就完事：
+               素材 1024×447 里黑卡只有 991×190，但**吉祥物的耳朵/皇冠高出卡片上边缘 54px**，
+               NEW 斜标签也向左探出卡片 14px，两者都压在白底上。按卡片裁 → 皇冠被削平；
+               按内容裁 → 卡片上方留白边，而页面底色是 #F4F6F8，白边一眼可见。
+               所以 `scripts/make-invite-banner.mjs` 从四边 flood fill 把白底抠透明（阈值 240，
+               只清外部，卡内的白字/高光不受影响），再按内容包围盒导出 764×186。
+            ⚠️ 容器**不能加 `overflow-hidden` / `rounded-[24px]` / `shadow-xs`**：
+               会把出界的吉祥物裁掉，`shadow-xs` 还会画出一个矩形阴影（形状对不上）。
+               卡片自身的圆角已经烘在图里（≈7.6px 渲染值，比页面其它卡的 24px 方一点，
+               这是素材固有色，要统一得重绘素材）。
+            ⚠️ 382 宽卡位里渲染成 382×93（黑卡本体约 72 高）。吉祥物向上出界约 21px，
+               和上面「我的功能」的 14px 间距会有约 7px 重叠 —— DOM 顺序在后，会盖在上层，看着是压叠效果。
+            `public/invite-card.png` 保留未删，回退改 src 即可。 */}
         <div
           onClick={() => onShowToast('🎉 邀请链接已复制，好友首单立享 9.9 元新人特权！')}
-          className="cursor-pointer overflow-hidden rounded-[24px] shadow-xs transition-all duration-200 hover:shadow-md active:scale-[0.98]"
+          className="cursor-pointer select-none transition-all duration-200 active:scale-[0.98]"
         >
           <img
-            src="/invite-card.png"
-            alt="邀请好友"
-            className="block h-auto w-full select-none"
+            src="/invite-banner.png"
+            alt="邀请好友 得 9.9 元 · 新朋友首餐享专属福利"
+            className="block h-auto w-full"
             draggable={false}
           />
         </div>

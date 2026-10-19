@@ -11,3 +11,12 @@ coverage/
 # 都是可重跑脚本再生成的截图/录屏，不进版本控制 —— 否则 .git 会被上百 MB 图片撑爆。
 probe-out/
 outputs/
+
+# 一次性排查/验证的临时产出，不进版本控制
+tsc-log.txt
+tsc-exit.txt
+check-*.txt
+health.txt
+cleanup-log.txt
+left-over.txt
+icon-sheet.html

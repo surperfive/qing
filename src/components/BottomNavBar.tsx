@@ -40,13 +40,23 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
             <button
               key={tab.id}
               onClick={() => onSelectTab(tab.id)}
+              aria-current={isActive ? 'page' : undefined}
               className="flex-1 flex flex-col items-center justify-center cursor-pointer select-none transition-transform duration-200 ease-out active:scale-95 group py-0.5"
               id={`nav-tab-${tab.id}`}
             >
               {/* Icon container */}
               <div className="relative flex items-center justify-center w-7 h-7 text-black">
+                {/* 选中态：沿图标线条形状的绿色外描边 —— 底层同款图标用更粗的
+                    青柠 stroke 垫底，上层黑图标盖住内部，露出的就是「形状外描边」。
+                    ⚠️ 不是给按钮加 ring 外框（用户明确否掉过）。 */}
+                {isActive && (
+                  <Icon
+                    className="absolute h-5 w-5 stroke-[4.5] text-[#C7F665]"
+                    aria-hidden="true"
+                  />
+                )}
                 <Icon
-                  className={`w-5 h-5 transition-transform ${
+                  className={`relative w-5 h-5 transition-transform ${
                     isActive
                       ? "text-black stroke-[2.4] scale-105"
                       : "text-slate-400 stroke-[1.8] group-hover:scale-105 group-hover:text-slate-700"

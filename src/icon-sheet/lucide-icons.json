@@ -1,0 +1,531 @@
+[
+  {
+    "name": "Activity",
+    "files": [
+      "src\\components\\MePage.tsx",
+      "src\\components\\NutritionReportModal.tsx"
+    ]
+  },
+  {
+    "name": "AlertCircle",
+    "files": [
+      "src\\components\\ErrorBoundary.tsx"
+    ]
+  },
+  {
+    "name": "ArrowLeft",
+    "files": [
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "ArrowRight",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\FavPage.tsx",
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Award",
+    "files": [
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\NutritionReportModal.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "BadgePercent",
+    "files": [
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Battery",
+    "files": [
+      "src\\components\\DeviceFrameWrapper.tsx",
+      "src\\components\\MenuPage.tsx"
+    ]
+  },
+  {
+    "name": "Bell",
+    "files": [
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "Bike",
+    "files": [
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "Building2",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Check",
+    "files": [
+      "src\\components\\FloatingCart.tsx",
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\LoginModal.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\StoreModal.tsx"
+    ]
+  },
+  {
+    "name": "CheckCircle2",
+    "files": [
+      "src\\components\\HealthPlanModal.tsx",
+      "src\\components\\NutritionReportModal.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "ChevronDown",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "ChevronLeft",
+    "files": [
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "ChevronRight",
+    "files": [
+      "src\\components\\HeaderBar.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "ChevronUp",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "CircleDot",
+    "files": [
+      "src\\components\\MePage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Clock",
+    "files": [
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\StoreModal.tsx"
+    ]
+  },
+  {
+    "name": "Coffee",
+    "files": [
+      "src\\components\\DishImage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Copy",
+    "files": [
+      "src\\components\\HomePage.tsx"
+    ]
+  },
+  {
+    "name": "CreditCard",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Crown",
+    "files": [
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HomePage.tsx"
+    ]
+  },
+  {
+    "name": "CupSoda",
+    "files": [
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "FileText",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Flame",
+    "files": [
+      "src\\components\\FavPage.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\NutritionReportModal.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Gift",
+    "files": [
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Headphones",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Heart",
+    "files": [
+      "src\\components\\FavPage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\NutritionReportModal.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Home",
+    "files": [
+      "src\\components\\BottomNavBar.tsx"
+    ]
+  },
+  {
+    "name": "Info",
+    "files": [
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HealthPlanModal.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Layers",
+    "files": [
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Leaf",
+    "files": [
+      "src\\components\\MePage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Loader2",
+    "files": [
+      "src\\components\\LoginModal.tsx"
+    ]
+  },
+  {
+    "name": "LogIn",
+    "files": [
+      "src\\components\\HomePage.tsx"
+    ]
+  },
+  {
+    "name": "LogOut",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "MapPin",
+    "files": [
+      "src\\components\\HeaderBar.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\StoreModal.tsx"
+    ]
+  },
+  {
+    "name": "MessageSquare",
+    "files": [
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "Minus",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\FloatingCart.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Monitor",
+    "files": [
+      "src\\components\\DeviceFrameWrapper.tsx"
+    ]
+  },
+  {
+    "name": "Phone",
+    "files": [
+      "src\\components\\StoreModal.tsx"
+    ]
+  },
+  {
+    "name": "Plus",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\FavPage.tsx",
+      "src\\components\\FloatingCart.tsx",
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "ReceiptText",
+    "files": [
+      "src\\components\\BottomNavBar.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "RefreshCw",
+    "files": [
+      "src\\components\\GachaPage.tsx"
+    ]
+  },
+  {
+    "name": "RotateCcw",
+    "files": [
+      "src\\components\\ErrorBoundary.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "Salad",
+    "files": [
+      "src\\components\\DishImage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Sandwich",
+    "files": [
+      "src\\components\\DishImage.tsx"
+    ]
+  },
+  {
+    "name": "Search",
+    "files": [
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Settings",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Share2",
+    "files": [
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "ShieldCheck",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "ShoppingBag",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\HomePage.tsx"
+    ]
+  },
+  {
+    "name": "SlidersHorizontal",
+    "files": [
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Smartphone",
+    "files": [
+      "src\\components\\DeviceFrameWrapper.tsx",
+      "src\\components\\LoginModal.tsx"
+    ]
+  },
+  {
+    "name": "Smile",
+    "files": [
+      "src\\components\\BottomNavBar.tsx"
+    ]
+  },
+  {
+    "name": "Sparkles",
+    "files": [
+      "src\\components\\BannerSlider.tsx",
+      "src\\components\\BottomNavBar.tsx",
+      "src\\components\\DeviceFrameWrapper.tsx",
+      "src\\components\\DishImage.tsx",
+      "src\\components\\FavPage.tsx",
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\LoginModal.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Star",
+    "files": [
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Store",
+    "files": [
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MePage.tsx",
+      "src\\components\\OrdersPage.tsx",
+      "src\\components\\ProductDetailPage.tsx"
+    ]
+  },
+  {
+    "name": "Tablet",
+    "files": [
+      "src\\components\\DeviceFrameWrapper.tsx"
+    ]
+  },
+  {
+    "name": "Tag",
+    "files": [
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Target",
+    "files": [
+      "src\\components\\HealthPlanModal.tsx",
+      "src\\components\\MePage.tsx"
+    ]
+  },
+  {
+    "name": "Ticket",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\MenuPage.tsx"
+    ]
+  },
+  {
+    "name": "Trash2",
+    "files": [
+      "src\\components\\CartPage.tsx",
+      "src\\components\\FavPage.tsx",
+      "src\\components\\FloatingCart.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "TrendingDown",
+    "files": [
+      "src\\components\\NutritionReportModal.tsx"
+    ]
+  },
+  {
+    "name": "TrendingUp",
+    "files": [
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Truck",
+    "files": [
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "Users",
+    "files": [
+      "src\\components\\HomePage.tsx"
+    ]
+  },
+  {
+    "name": "Utensils",
+    "files": [
+      "src\\components\\BannerSlider.tsx",
+      "src\\components\\DishImage.tsx",
+      "src\\components\\OrdersPage.tsx"
+    ]
+  },
+  {
+    "name": "UtensilsCrossed",
+    "files": [
+      "src\\components\\BottomNavBar.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  },
+  {
+    "name": "Wifi",
+    "files": [
+      "src\\components\\DeviceFrameWrapper.tsx",
+      "src\\components\\MenuPage.tsx"
+    ]
+  },
+  {
+    "name": "X",
+    "files": [
+      "src\\components\\GachaPage.tsx",
+      "src\\components\\HealthPlanModal.tsx",
+      "src\\components\\HomePage.tsx",
+      "src\\components\\LoginModal.tsx",
+      "src\\components\\MenuPage.tsx",
+      "src\\components\\NutritionReportModal.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx",
+      "src\\components\\StoreModal.tsx"
+    ]
+  },
+  {
+    "name": "Zap",
+    "files": [
+      "src\\components\\HomePage.tsx",
+      "src\\components\\ProductDetailPage.tsx",
+      "src\\components\\SearchModal.tsx"
+    ]
+  }
+]
